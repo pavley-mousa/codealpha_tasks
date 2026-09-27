@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavley Mousa | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- شريط التنقل (Navbar) -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">&lt;Pavley Mousa /&gt;</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li><a href="#contact" class="nav-link btn-contact">Contact Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- القسم الرئيسي (Hero Section) -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <span class="badge">Computer Science Student &amp; Developer</span>
+      <h1>Crafting Scalable Web Apps &amp; Secure Digital Systems</h1>
+      <p>Faculty of Computers &amp; Artificial Intelligence student. Passionate about software engineering, frontend architectures, C++, and web security fundamentals.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- نبذة عني (About Section) -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-card">
+        <p>I am a Computer Science &amp; Artificial Intelligence student focused on software engineering, frontend architectures, and cybersecurity fundamentals. I specialize in building responsive user interfaces and scalable web solutions using modern technologies like JavaScript, C++, Node.js, and Cloud services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- المهارات التقنية (Skills Section) -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-brands fa-html5"></i><span>HTML5 &amp; CSS3</span></div>
+        <div class="skill-card"><i class="fa-brands fa-js"></i><span>JavaScript (ES6+)</span></div>
+        <div class="skill-card"><i class="fa-solid fa-code"></i><span>C++ Programming</span></div>
+        <div class="skill-card"><i class="fa-brands fa-node-js"></i><span>Node.js / Express</span></div>
+        <div class="skill-card"><i class="fa-solid fa-database"></i><span>SQL &amp; Turso DB</span></div>
+        <div class="skill-card"><i class="fa-brands fa-git-alt"></i><span>Git &amp; GitHub</span></div>
+        <div class="skill-card"><i class="fa-solid fa-shield-halved"></i><span>Web Security Basics</span></div>
+        <div class="skill-card"><i class="fa-solid fa-cloud"></i><span>Vercel / Cloudflare</span></div>
+        <div class="skill-card"><i class="fa-solid fa-paintbrush"></i><span>Photoshop / Illustrator</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- المشاريع (Projects Section) -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <!-- beVo Stickers -->
+        <article class="project-card">
+          <div class="project-preview">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">E-Commerce Web App</span>
+            <h3>beVo Stickers Platform</h3>
+            <p>An e-commerce web platform for custom stickers featuring automated cart management, WhatsApp order routing, Cloudinary media storage, and Turso DB deployed on Vercel.</p>
+            <div class="project-tech">
+              <span>JavaScript</span><span>Turso</span><span>Cloudinary</span><span>Vercel</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Source Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- الآلة الحاسبة CodeAlpha Task 2 -->
+        <article class="project-card">
+          <div class="project-preview">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">CodeAlpha Task 2</span>
+            <h3>Interactive Web Calculator</h3>
+            <p>A full-featured calculator supporting standard arithmetic operations, real-time live preview evaluation, error prevention, and physical keyboard controls.</p>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS Grid</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/pavley-mousa/CodeAlpha_Calculator" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Source Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- معرض الصور CodeAlpha Task 1 -->
+        <article class="project-card">
+          <div class="project-preview">
+            <i class="fa-solid fa-images"></i>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">CodeAlpha Task 1</span>
+            <h3>Responsive Image Gallery</h3>
+            <p>An interactive image gallery featuring animated category filtering, smooth hover overlays, and an accessible modal lightbox with navigation.</p>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS</span><span>DOM Events</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/pavley-mousa/CodeAlpha_ImageGallery" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Source Code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- الشهادات والتدريبات (Certifications Section) -->
+  <section class="section certifications" id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications &amp; Training</h2>
+      <div class="cert-grid">
+        
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="cert-details">
+            <h3>Cisco C++ Essentials 1</h3>
+            <p>Cisco Networking Academy</p>
+            <span class="cert-badge">Certified</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="cert-details">
+            <h3>Introduction to Cybersecurity</h3>
+            <p>Cisco Networking Academy</p>
+            <span class="cert-badge">Certified</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="cert-details">
+            <h3>Huawei ICT Academic Training</h3>
+            <p>Sphinx University &amp; FCAI Collaboration</p>
+            <span class="cert-badge">Training</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-brands fa-google"></i></div>
+          <div class="cert-details">
+            <h3>Google Developer Program Member</h3>
+            <p>Active community member &amp; DevFest attendee</p>
+            <span class="cert-badge">Member</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- التواصل المباشر (Contact Section) -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-card">
+        <h3>Let's collaborate</h3>
+        <p>I'm open to software development opportunities, freelance work, and technical discussions.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/pavley-mousa-715533341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:bavlymosa29@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://wa.me/201556126686" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- التذييل -->
+  <footer class="footer">
+    <p>&copy; 2026 Pavley Mousa.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
