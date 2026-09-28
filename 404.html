@@ -1,17 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08111f">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08111f" />
   <title>404 | Pavley Mousa</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#08111f;color:#f8fafc;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center}main{max-width:620px}span{color:#38bdf8;font:800 5rem/1 monospace}h1{margin:18px 0 8px;font-size:2rem}p{margin:0 0 28px;color:#8ea0b8}a{display:inline-flex;padding:12px 18px;border-radius:10px;background:#0284c7;color:white;text-decoration:none;font-weight:700}a:hover{background:#0ea5e9}
+    :root{color-scheme:dark;--bg:#08111f;--surface:#101d31;--text:#f8fafc;--muted:#8ea0b8;--primary:#38bdf8;--primary-strong:#0ea5e9;--border:rgba(148,163,184,.16)}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 0,rgba(56,189,248,.1),transparent 28rem),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center}
+    main{width:min(620px,100%);padding:42px 30px;border:1px solid var(--border);border-radius:24px;background:rgba(16,29,49,.76);box-shadow:0 24px 70px rgba(0,0,0,.22)}
+    .code{color:var(--primary);font:800 5rem/1 "SFMono-Regular",Consolas,monospace}
+    h1{margin:18px 0 8px;font-size:2rem}
+    p{margin:0 0 28px;color:var(--muted)}
+    a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;background:var(--primary-strong);color:#fff;text-decoration:none;font-weight:700}
+    a:hover{background:var(--primary)}
   </style>
 </head>
 <body>
   <main>
-    <span>404</span>
+    <div class="code">404</div>
     <h1>Page not found</h1>
     <p>The page you requested does not exist.</p>
     <a href="/">Back to portfolio</a>
