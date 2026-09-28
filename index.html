@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#08111f" />
-  <meta name="description" content="Pavley Mousa — Computer Science and Artificial Intelligence student portfolio." />
+  <meta id="meta-description" name="description" content="Pavley Mousa — Computer Science and Artificial Intelligence student portfolio." />
   <meta name="author" content="Pavley Mousa" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Pavley Mousa | Developer Portfolio" />
-  <meta property="og:description" content="Computer Science and Artificial Intelligence student building practical software and web projects." />
+  <meta id="og-title" property="og:title" content="Pavley Mousa | Developer Portfolio" />
+  <meta id="og-description" property="og:description" content="Computer Science and Artificial Intelligence student building practical software and web projects." />
   <meta property="og:site_name" content="Pavley Mousa Portfolio" />
-  <title>Pavley Mousa | Developer Portfolio</title>
+  <title id="page-title">Pavley Mousa | Developer Portfolio</title>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,18 +24,22 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="nav-container">
-      <a class="nav-logo" href="#hero" aria-label="Pavley Mousa home">
-        <span>&lt;</span>Pavley<span>/&gt;</span>
+      <a class="nav-logo" href="#hero" id="site-brand" aria-label="Pavley Mousa home">
+        <span>&lt;</span><span id="brand-name">Pavley Mousa</span><span>/&gt;</span>
       </a>
 
       <div class="nav-actions">
+        <button class="icon-button language-button" id="language-toggle" type="button">العربية</button>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
           <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button class="icon-button" id="settings-toggle" type="button" aria-label="Open settings">
+          <i class="fa-solid fa-gear" aria-hidden="true"></i>
         </button>
         <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
@@ -43,12 +47,11 @@
       </div>
 
       <ul class="nav-menu" id="nav-menu">
-        <li><a class="nav-link" href="#about">About</a></li>
-        <li><a class="nav-link" href="#skills">Skills</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#labs">Labs</a></li>
-        <li><a class="nav-link" href="#training">Training</a></li>
-        <li><a class="nav-link nav-contact" href="#contact">Contact</a></li>
+        <li><a class="nav-link" href="#about" data-i18n="navAbout">About</a></li>
+        <li><a class="nav-link" href="#skills" data-i18n="navSkills">Skills</a></li>
+        <li><a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a></li>
+        <li><a class="nav-link" href="#training" data-i18n="navTraining">Training</a></li>
+        <li><a class="nav-link nav-contact" href="#contact" data-i18n="navContact">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -62,37 +65,35 @@
         <div class="hero-content reveal">
           <span class="eyebrow">
             <span class="status-dot" aria-hidden="true"></span>
-            Computer Science &amp; AI Student
+            <span id="hero-badge">Computer Science &amp; AI Student</span>
           </span>
 
           <h1>
-            I build useful software with
-            <span>code, curiosity, and consistency.</span>
+            <span id="hero-title">I build useful software with</span>
+            <span id="hero-highlight">code, curiosity, and consistency.</span>
           </h1>
 
-          <p class="hero-copy">
+          <p class="hero-copy" id="hero-description">
             I’m Pavley Mousa, a Computer Science and Artificial Intelligence student focused on frontend development, C++, software engineering, and web security fundamentals.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">
-              View projects
+              <span data-i18n="viewProjects">View projects</span>
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+            <a class="btn btn-secondary" href="#contact" data-i18n="getInTouch">Get in touch</a>
           </div>
 
           <div class="hero-meta" aria-label="Quick facts">
-            <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Egypt</span>
-            <span><i class="fa-solid fa-code" aria-hidden="true"></i> Web development</span>
-            <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security fundamentals</span>
+            <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span id="hero-location">Egypt</span></span>
+            <span><i class="fa-solid fa-code" aria-hidden="true"></i> <span data-i18n="webDevelopment">Web development</span></span>
+            <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> <span data-i18n="securityFundamentals">Security fundamentals</span></span>
           </div>
         </div>
 
         <div class="hero-card reveal" aria-label="Developer profile card">
-          <div class="terminal-top" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
+          <div class="terminal-top" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="terminal-body" aria-label="Code-style profile">
             <p><span class="code-purple">const</span> developer = {</p>
             <p class="code-indent"><span class="code-key">name:</span> <span class="code-string">"Pavley Mousa"</span>,</p>
@@ -106,356 +107,150 @@
       </div>
 
       <a class="scroll-hint" href="#about" aria-label="Scroll to about">
-        <span>Scroll to explore</span>
+        <span data-i18n="scrollExplore">Scroll to explore</span>
         <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
       </a>
     </header>
 
     <section class="section section-shell" id="about" data-observe-section>
       <div class="section-heading reveal">
-        <span class="section-kicker">01 / ABOUT</span>
-        <h2>Learning by building real things.</h2>
-        <p>I use projects to turn programming concepts into working interfaces, tools, and experiments.</p>
+        <span class="section-kicker" data-i18n="aboutKicker">01 / ABOUT</span>
+        <h2 id="about-title">Learning by building real things.</h2>
+        <p id="about-lead">I use projects to turn programming concepts into working interfaces, tools, and experiments.</p>
       </div>
 
       <div class="about-layout">
         <article class="about-card glass-card reveal">
           <div class="card-icon"><i class="fa-solid fa-user-astronaut" aria-hidden="true"></i></div>
-          <h3>Who I am</h3>
-          <p>
-            I study Computer Science and Artificial Intelligence and build projects while I learn. My priorities are readable code, responsive design, practical problem solving, and steady improvement.
-          </p>
+          <h3 data-i18n="aboutCardTitle">Who I am</h3>
+          <p id="about-text">I study Computer Science and Artificial Intelligence and build projects while I learn. My priorities are readable code, responsive design, practical problem solving, and steady improvement.</p>
         </article>
 
         <div class="stats-grid" aria-label="Portfolio highlights">
-          <article class="stat-card glass-card reveal">
-            <strong>06</strong>
-            <span>Practical skill areas</span>
-          </article>
-          <article class="stat-card glass-card reveal">
-            <strong>04</strong>
-            <span>Featured projects</span>
-          </article>
-          <article class="stat-card glass-card reveal">
-            <strong>2026</strong>
-            <span>Current learning journey</span>
-          </article>
+          <article class="stat-card glass-card reveal"><strong>06</strong><span data-i18n="statSkills">Practical skill areas</span></article>
+          <article class="stat-card glass-card reveal"><strong>04</strong><span data-i18n="statProjects">Featured projects</span></article>
+          <article class="stat-card glass-card reveal"><strong id="stat-year">2026</strong><span data-i18n="statJourney">Current learning journey</span></article>
         </div>
       </div>
     </section>
 
     <section class="section section-shell" id="skills" data-observe-section>
       <div class="section-heading reveal">
-        <span class="section-kicker">02 / SKILLS</span>
-        <h2>My current toolkit.</h2>
-        <p>A practical foundation across web development, programming, data, and security.</p>
+        <span class="section-kicker" data-i18n="skillsKicker">02 / SKILLS</span>
+        <h2 data-i18n="skillsTitle">My current toolkit.</h2>
+        <p data-i18n="skillsLead">A practical foundation across web development, programming, data, and security.</p>
       </div>
 
       <div class="skills-grid">
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-html5" aria-hidden="true"></i></div>
-          <h3>HTML &amp; CSS</h3>
-          <p>Semantic HTML, responsive layouts, accessibility, and modern CSS patterns.</p>
-          <span class="skill-level">Frontend</span>
+          <h3>HTML &amp; CSS</h3><p data-i18n="skillHtmlText">Semantic HTML, responsive layouts, accessibility, and modern CSS patterns.</p><span class="skill-level" data-i18n="frontend">Frontend</span>
         </article>
-
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-js" aria-hidden="true"></i></div>
-          <h3>JavaScript</h3>
-          <p>DOM manipulation, browser APIs, events, state, and interactive UI logic.</p>
-          <span class="skill-level">Frontend</span>
+          <h3>JavaScript</h3><p data-i18n="skillJsText">DOM manipulation, browser APIs, events, state, and interactive UI logic.</p><span class="skill-level" data-i18n="frontend">Frontend</span>
         </article>
-
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
-          <h3>C++</h3>
-          <p>Programming fundamentals, functions, problem solving, and algorithm practice.</p>
-          <span class="skill-level">Programming</span>
+          <h3>C++</h3><p data-i18n="skillCppText">Programming fundamentals, functions, problem solving, and algorithm practice.</p><span class="skill-level" data-i18n="programming">Programming</span>
         </article>
-
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-node-js" aria-hidden="true"></i></div>
-          <h3>Node.js</h3>
-          <p>JavaScript runtime concepts and backend foundations for web applications.</p>
-          <span class="skill-level">Backend</span>
+          <h3>Node.js</h3><p data-i18n="skillNodeText">JavaScript runtime concepts and backend foundations for web applications.</p><span class="skill-level" data-i18n="backend">Backend</span>
         </article>
-
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
-          <h3>SQL</h3>
-          <p>Relational models, schemas, queries, and application data fundamentals.</p>
-          <span class="skill-level">Data</span>
+          <h3>SQL</h3><p data-i18n="skillSqlText">Relational models, schemas, queries, and application data fundamentals.</p><span class="skill-level" data-i18n="data">Data</span>
         </article>
-
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-          <h3>Web Security</h3>
-          <p>Security fundamentals, safer browser practices, and common web risks.</p>
-          <span class="skill-level">Security</span>
+          <h3 data-i18n="webSecurity">Web Security</h3><p data-i18n="skillSecurityText">Security fundamentals, safer browser practices, and common web risks.</p><span class="skill-level" data-i18n="security">Security</span>
         </article>
       </div>
     </section>
 
     <section class="section section-shell" id="projects" data-observe-section>
       <div class="section-heading reveal">
-        <span class="section-kicker">03 / PROJECTS</span>
-        <h2>Selected work and practice.</h2>
-        <p>Projects that reflect what I’m learning and the way I approach building.</p>
+        <span class="section-kicker" data-i18n="projectsKicker">03 / PROJECTS</span>
+        <h2 data-i18n="projectsTitle">Selected work and practice.</h2>
+        <p data-i18n="projectsLead">Projects that reflect what I’m learning and the way I approach building.</p>
       </div>
 
       <div class="projects-grid">
         <article class="project-card project-featured glass-card reveal">
-          <div class="project-visual bevo-visual">
-            <span class="project-number">01</span>
-            <i class="fa-solid fa-store" aria-hidden="true"></i>
-            <span class="visual-label">E-COMMERCE</span>
-          </div>
+          <div class="project-visual bevo-visual"><span class="project-number">01</span><i class="fa-solid fa-store" aria-hidden="true"></i><span class="visual-label">E-COMMERCE</span></div>
           <div class="project-content">
-            <span class="project-tag">Featured</span>
-            <h3>Bevo Stickers</h3>
-            <p>A custom sticker shopping experience centered on product browsing, cart flow, media handling, and practical deployment.</p>
-            <div class="tech-list">
-              <span>JavaScript</span><span>Cloudinary</span><span>Turso</span><span>Vercel</span>
-            </div>
-            <a class="text-link" href="https://github.com/pavley-mousa/Bevo-stickers" target="_blank" rel="noopener noreferrer">
-              View source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-            </a>
+            <span class="project-tag" data-i18n="featured">Featured</span><h3>Bevo Stickers</h3>
+            <p data-i18n="bevoText">A custom sticker shopping experience centered on product browsing, cart flow, media handling, and practical deployment.</p>
+            <div class="tech-list"><span>JavaScript</span><span>Cloudinary</span><span>Turso</span><span>Vercel</span></div>
+            <a class="text-link" href="https://github.com/pavley-mousa/Bevo-stickers" target="_blank" rel="noopener noreferrer"><span data-i18n="viewSource">View source</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </div>
         </article>
 
         <article class="project-card glass-card reveal">
-          <div class="project-visual music-visual">
-            <span class="project-number">02</span>
-            <i class="fa-solid fa-music" aria-hidden="true"></i>
-            <span class="visual-label">CODEALPHA TASK</span>
-          </div>
+          <div class="project-visual music-visual"><span class="project-number">02</span><i class="fa-solid fa-music" aria-hidden="true"></i><span class="visual-label">CODEALPHA TASK</span></div>
           <div class="project-content">
-            <span class="project-tag">Frontend Practice</span>
-            <h3>Music Player</h3>
-            <p>A browser-based player experiment with playlists, playback controls, local settings, and multiple audio source types.</p>
-            <div class="tech-list">
-              <span>HTML5</span><span>CSS</span><span>JavaScript</span><span>localStorage</span>
-            </div>
-            <a class="text-link" href="https://github.com/pavley-mousa/codealpha_tasks_Music_Player" target="_blank" rel="noopener noreferrer">
-              View source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-            </a>
+            <span class="project-tag" data-i18n="frontendPractice">Frontend Practice</span><h3>Music Player</h3>
+            <p data-i18n="musicText">A browser-based player experiment with playlists, playback controls, local settings, and multiple audio source types.</p>
+            <div class="tech-list"><span>HTML5</span><span>CSS</span><span>JavaScript</span><span>localStorage</span></div>
+            <a class="text-link" href="https://github.com/pavley-mousa/codealpha_tasks_Music_Player" target="_blank" rel="noopener noreferrer"><span data-i18n="viewSource">View source</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </div>
         </article>
 
         <article class="project-card glass-card reveal">
-          <div class="project-visual gallery-visual">
-            <span class="project-number">03</span>
-            <i class="fa-solid fa-images" aria-hidden="true"></i>
-            <span class="visual-label">CODEALPHA TASK</span>
-          </div>
+          <div class="project-visual gallery-visual"><span class="project-number">03</span><i class="fa-solid fa-images" aria-hidden="true"></i><span class="visual-label">CODEALPHA TASK</span></div>
           <div class="project-content">
-            <span class="project-tag">Frontend Practice</span>
-            <h3>Responsive Image Gallery</h3>
-            <p>A responsive image gallery focused on search, filters, responsive cards, local demo assets, and full-screen viewing.</p>
-            <div class="tech-list">
-              <span>HTML5</span><span>CSS</span><span>DOM</span><span>localStorage</span>
-            </div>
-            <a class="text-link" href="https://github.com/pavley-mousa/codealpha_tasks_image_gallery" target="_blank" rel="noopener noreferrer">
-              View source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-            </a>
+            <span class="project-tag" data-i18n="frontendPractice">Frontend Practice</span><h3>Responsive Image Gallery</h3>
+            <p data-i18n="galleryText">A responsive image gallery focused on search, filters, responsive cards, local demo assets, and full-screen viewing.</p>
+            <div class="tech-list"><span>HTML5</span><span>CSS</span><span>DOM</span><span>localStorage</span></div>
+            <a class="text-link" href="https://github.com/pavley-mousa/codealpha_tasks_image_gallery" target="_blank" rel="noopener noreferrer"><span data-i18n="viewSource">View source</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </div>
         </article>
 
         <article class="project-card glass-card reveal">
-          <div class="project-visual calculator-visual">
-            <span class="project-number">04</span>
-            <i class="fa-solid fa-calculator" aria-hidden="true"></i>
-            <span class="visual-label">CODEALPHA TASK</span>
-          </div>
+          <div class="project-visual calculator-visual"><span class="project-number">04</span><i class="fa-solid fa-calculator" aria-hidden="true"></i><span class="visual-label">CODEALPHA TASK</span></div>
           <div class="project-content">
-            <span class="project-tag">Practice</span>
-            <h3>Interactive Calculator</h3>
-            <p>A compact browser calculator focused on arithmetic operations, input handling, keyboard support, and clean UI behavior.</p>
-            <div class="tech-list">
-              <span>HTML5</span><span>CSS Grid</span><span>JavaScript</span>
-            </div>
-            <span class="project-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Source link will be added when a dedicated repository is available.</span>
+            <span class="project-tag" data-i18n="practice">Practice</span><h3>Interactive Calculator</h3>
+            <p data-i18n="calculatorText">A compact browser calculator focused on arithmetic operations, input handling, keyboard support, and clean UI behavior.</p>
+            <div class="tech-list"><span>HTML5</span><span>CSS Grid</span><span>JavaScript</span></div>
+            <span class="project-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> <span data-i18n="calculatorNote">Source link will be added when a dedicated repository is available.</span></span>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-shell labs-section" id="labs" data-observe-section>
-      <div class="section-heading reveal">
-        <span class="section-kicker">04 / INTERACTIVE LABS</span>
-        <h2>Try the projects, not just the cards.</h2>
-        <p>These small demos bring the useful parts of the separate Music Player and Image Gallery projects into this portfolio.</p>
-      </div>
-
-      <div class="labs-grid">
-        <article class="lab-card glass-card reveal" aria-labelledby="music-lab-title">
-          <div class="lab-head">
-            <div>
-              <span class="lab-kicker"><i class="fa-solid fa-music" aria-hidden="true"></i> MUSIC PLAYER</span>
-              <h3 id="music-lab-title">Personal audio library</h3>
-            </div>
-            <span class="lab-badge">localStorage</span>
-          </div>
-
-          <div class="music-now">
-            <div class="music-cover" id="music-cover" aria-hidden="true"><i class="fa-solid fa-music"></i></div>
-            <div class="music-track-copy">
-              <strong id="music-title">Demo Track</strong>
-              <span id="music-artist">SoundHelix</span>
-              <span id="music-source">Direct audio</span>
-            </div>
-            <button class="lab-icon-btn" id="music-favorite" type="button" aria-label="Favorite track" aria-pressed="false">
-              <i class="fa-regular fa-heart" aria-hidden="true"></i>
-            </button>
-          </div>
-
-          <audio id="lab-audio" preload="metadata"></audio>
-
-          <div class="music-progress">
-            <span id="music-current">0:00</span>
-            <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track progress" />
-            <span id="music-duration">0:00</span>
-          </div>
-
-          <div class="music-controls">
-            <button class="lab-icon-btn" id="music-shuffle" type="button" aria-label="Shuffle off" aria-pressed="false"><i class="fa-solid fa-shuffle"></i></button>
-            <button class="lab-icon-btn" id="music-prev" type="button" aria-label="Previous track"><i class="fa-solid fa-backward-step"></i></button>
-            <button class="lab-play-btn" id="music-play" type="button" aria-label="Play"><i class="fa-solid fa-play" aria-hidden="true"></i></button>
-            <button class="lab-icon-btn" id="music-next" type="button" aria-label="Next track"><i class="fa-solid fa-forward-step"></i></button>
-            <button class="lab-icon-btn" id="music-repeat" type="button" aria-label="Repeat off" aria-pressed="false"><i class="fa-solid fa-repeat"></i></button>
-          </div>
-
-          <div class="music-volume">
-            <button class="lab-icon-btn" id="music-mute" type="button" aria-label="Mute"><i class="fa-solid fa-volume-high"></i></button>
-            <input id="music-volume" type="range" min="0" max="1" value="0.8" step="0.01" aria-label="Volume" />
-            <span id="music-status">Player ready.</span>
-          </div>
-
-          <div class="music-playlist-wrap">
-            <div class="lab-subhead">
-              <strong>Playlist</strong>
-              <span id="music-track-count">0 tracks</span>
-            </div>
-            <div class="music-playlist" id="music-playlist"></div>
-          </div>
-
-          <form class="lab-form music-add-form" id="music-add-form">
-            <input id="music-track-name" type="text" maxlength="70" placeholder="Track name" aria-label="Track name" required />
-            <input id="music-track-url" type="url" placeholder="https://...mp3" aria-label="Direct audio URL" required />
-            <input id="music-track-artist" type="text" maxlength="60" placeholder="Artist" aria-label="Artist" />
-            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Add track</button>
-          </form>
-          <p class="lab-hint">Direct audio URLs are supported. SoundCloud can be kept as a source link, while browser playback uses direct audio files.</p>
-        </article>
-
-        <article class="lab-card glass-card reveal" aria-labelledby="gallery-lab-title">
-          <div class="lab-head">
-            <div>
-              <span class="lab-kicker"><i class="fa-solid fa-images" aria-hidden="true"></i> IMAGE GALLERY</span>
-              <h3 id="gallery-lab-title">Browse and build a collection</h3>
-            </div>
-            <span class="lab-badge" id="gallery-count-badge">0 images</span>
-          </div>
-
-          <div class="gallery-tools">
-            <input id="gallery-search" type="search" placeholder="Search images..." aria-label="Search images" />
-            <select id="gallery-category" aria-label="Filter images by category">
-              <option value="all">All categories</option>
-            </select>
-            <select id="gallery-sort" aria-label="Sort gallery">
-              <option value="newest">Newest</option>
-              <option value="oldest">Oldest</option>
-            </select>
-          </div>
-
-          <div class="lab-gallery-grid" id="lab-gallery-grid"></div>
-          <p class="gallery-empty hidden" id="gallery-empty">No images match your search.</p>
-
-          <form class="lab-form gallery-add-form" id="gallery-add-form">
-            <input id="gallery-title-input" type="text" maxlength="70" placeholder="Image title" aria-label="Image title" required />
-            <input id="gallery-category-input" type="text" maxlength="35" placeholder="Category" aria-label="Image category" />
-            <input id="gallery-url-input" type="url" placeholder="Image URL (https://...)" aria-label="Image URL" />
-            <input id="gallery-file-input" type="file" accept="image/*" aria-label="Upload image" />
-            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Add image</button>
-          </form>
-          <p class="lab-hint">Images added by URL or upload are stored locally in this browser. Uploaded files should be 3MB or smaller.</p>
         </article>
       </div>
     </section>
 
     <section class="section section-shell" id="training" data-observe-section>
       <div class="section-heading reveal">
-        <span class="section-kicker">05 / TRAINING</span>
-        <h2>Courses and communities.</h2>
-        <p>Selected learning milestones from university, technical courses, and developer communities.</p>
+        <span class="section-kicker" data-i18n="trainingKicker">04 / TRAINING</span>
+        <h2 data-i18n="trainingTitle">Courses and communities.</h2>
+        <p data-i18n="trainingLead">Selected learning milestones from university, technical courses, and developer communities.</p>
       </div>
 
       <div class="timeline">
-        <article class="timeline-item reveal">
-          <div class="timeline-marker"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
-          <div class="timeline-card glass-card">
-            <span class="timeline-label">CERTIFIED</span>
-            <h3>C++ Essentials 1</h3>
-            <p>Cisco Networking Academy</p>
-            <span class="timeline-year">Programming fundamentals</span>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <div class="timeline-marker"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-          <div class="timeline-card glass-card">
-            <span class="timeline-label">CERTIFIED</span>
-            <h3>Introduction to Cybersecurity</h3>
-            <p>Cisco Networking Academy</p>
-            <span class="timeline-year">Security fundamentals</span>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <div class="timeline-marker"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div>
-          <div class="timeline-card glass-card">
-            <span class="timeline-label">TRAINING</span>
-            <h3>Huawei ICT Academic Training</h3>
-            <p>Sphinx University &amp; FCAI collaboration</p>
-            <span class="timeline-year">Academic training</span>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <div class="timeline-marker"><i class="fa-brands fa-google" aria-hidden="true"></i></div>
-          <div class="timeline-card glass-card">
-            <span class="timeline-label">COMMUNITY</span>
-            <h3>Google Developer Program</h3>
-            <p>Developer community participation and DevFest attendance</p>
-            <span class="timeline-year">Developer community</span>
-          </div>
-        </article>
+        <article class="timeline-item reveal"><div class="timeline-marker"><i class="fa-solid fa-code" aria-hidden="true"></i></div><div class="timeline-card glass-card"><span class="timeline-label" data-i18n="certified">CERTIFIED</span><h3>C++ Essentials 1</h3><p>Cisco Networking Academy</p><span class="timeline-year" data-i18n="programmingFundamentals">Programming fundamentals</span></div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div><div class="timeline-card glass-card"><span class="timeline-label" data-i18n="certified">CERTIFIED</span><h3>Introduction to Cybersecurity</h3><p>Cisco Networking Academy</p><span class="timeline-year" data-i18n="securityFundamentals">Security fundamentals</span></div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div><div class="timeline-card glass-card"><span class="timeline-label" data-i18n="training">TRAINING</span><h3>Huawei ICT Academic Training</h3><p>Sphinx University &amp; FCAI collaboration</p><span class="timeline-year" data-i18n="academicTraining">Academic training</span></div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"><i class="fa-brands fa-google" aria-hidden="true"></i></div><div class="timeline-card glass-card"><span class="timeline-label" data-i18n="community">COMMUNITY</span><h3>Google Developer Program</h3><p data-i18n="googleText">Developer community participation and DevFest attendance</p><span class="timeline-year" data-i18n="developerCommunity">Developer community</span></div></article>
       </div>
     </section>
 
     <section class="section section-shell contact-section" id="contact" data-observe-section>
       <div class="contact-card glass-card reveal">
-        <span class="section-kicker">06 / CONTACT</span>
-        <h2>Let’s build something useful.</h2>
-        <p>Open to software development opportunities, freelance projects, and technical conversations.</p>
+        <span class="section-kicker" data-i18n="contactKicker">05 / CONTACT</span>
+        <h2 id="contact-title">Let’s build something useful.</h2>
+        <p id="contact-description">Open to software development opportunities, freelance projects, and technical conversations.</p>
 
         <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:bavlymosa29@gmail.com">
-            Send an email
-            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-          </a>
-          <button class="btn btn-secondary copy-email" id="copy-email" type="button" data-email="bavlymosa29@gmail.com">
-            Copy email
-            <i class="fa-regular fa-copy" aria-hidden="true"></i>
-          </button>
+          <a class="btn btn-primary" id="email-link" href="mailto:bavlymosa29@gmail.com"><span data-i18n="sendEmail">Send an email</span><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a>
+          <button class="btn btn-secondary copy-email" id="copy-email" type="button" data-email="bavlymosa29@gmail.com"><span data-i18n="copyEmail">Copy email</span><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
         </div>
 
         <div class="social-links" aria-label="Social profiles">
-          <a href="https://www.linkedin.com/in/pavley-mousa-715533341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-          <a href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-          <a href="https://wa.me/201556126686" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-          <a href="https://www.facebook.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://www.instagram.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a id="linkedin-link" href="https://www.linkedin.com/in/pavley-mousa-715533341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          <a id="github-link" href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a id="whatsapp-link" href="https://wa.me/201556126686" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a id="facebook-link" href="https://www.facebook.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+          <a id="instagram-link" href="https://www.instagram.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
         </div>
 
         <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></p>
@@ -463,10 +258,94 @@
     </section>
   </main>
 
+  <div class="settings-overlay hidden" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="settings-backdrop" data-close-settings></div>
+    <section class="settings-card">
+      <div class="settings-header">
+        <div>
+          <span class="section-kicker" data-i18n="settingsKicker">USER SETTINGS</span>
+          <h2 id="settings-title" data-i18n="settingsTitle">Full Site Control</h2>
+          <p data-i18n="settingsLead">Edit the portfolio identity and visible content. Changes are saved in this browser.</p>
+        </div>
+        <button class="icon-button" type="button" data-close-settings aria-label="Close settings"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="settings-grid">
+        <section class="settings-section">
+          <h3 data-i18n="identitySection">Identity</h3>
+          <label><span data-i18n="siteNameEn">Site name — English</span><input id="setting-site-en" type="text" maxlength="70"></label>
+          <label><span data-i18n="siteNameAr">Site name — العربية</span><input id="setting-site-ar" type="text" maxlength="70" dir="rtl"></label>
+          <label><span data-i18n="subtitleEn">Subtitle — English</span><input id="setting-subtitle-en" type="text" maxlength="140"></label>
+          <label><span data-i18n="subtitleAr">Subtitle — العربية</span><input id="setting-subtitle-ar" type="text" maxlength="140" dir="rtl"></label>
+          <label><span data-i18n="logoUrl">Logo URL</span><input id="setting-logo" type="url" placeholder="https://..."></label>
+          <label><span data-i18n="accent">Accent color</span><input id="setting-accent" type="color"></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="heroSection">Hero</h3>
+          <label><span data-i18n="heroBadgeEn">Badge — English</span><input id="setting-hero-badge-en" type="text"></label>
+          <label><span data-i18n="heroBadgeAr">Badge — العربية</span><input id="setting-hero-badge-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="heroTitleEn">Hero title — English</span><input id="setting-hero-title-en" type="text"></label>
+          <label><span data-i18n="heroTitleAr">Hero title — العربية</span><input id="setting-hero-title-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="heroHighlightEn">Highlight — English</span><input id="setting-hero-highlight-en" type="text"></label>
+          <label><span data-i18n="heroHighlightAr">Highlight — العربية</span><input id="setting-hero-highlight-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="heroDescriptionEn">Hero description — English</span><textarea id="setting-hero-description-en" rows="3"></textarea></label>
+          <label><span data-i18n="heroDescriptionAr">Hero description — العربية</span><textarea id="setting-hero-description-ar" rows="3" dir="rtl"></textarea></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="aboutSection">About</h3>
+          <label><span data-i18n="aboutTitleEn">About title — English</span><input id="setting-about-title-en" type="text"></label>
+          <label><span data-i18n="aboutTitleAr">About title — العربية</span><input id="setting-about-title-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="aboutLeadEn">About lead — English</span><textarea id="setting-about-lead-en" rows="3"></textarea></label>
+          <label><span data-i18n="aboutLeadAr">About lead — العربية</span><textarea id="setting-about-lead-ar" rows="3" dir="rtl"></textarea></label>
+          <label><span data-i18n="aboutTextEn">About text — English</span><textarea id="setting-about-text-en" rows="4"></textarea></label>
+          <label><span data-i18n="aboutTextAr">About text — العربية</span><textarea id="setting-about-text-ar" rows="4" dir="rtl"></textarea></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="contactSection">Contact</h3>
+          <label><span data-i18n="contactTitleEn">Contact title — English</span><input id="setting-contact-title-en" type="text"></label>
+          <label><span data-i18n="contactTitleAr">Contact title — العربية</span><input id="setting-contact-title-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="contactTextEn">Contact text — English</span><textarea id="setting-contact-text-en" rows="3"></textarea></label>
+          <label><span data-i18n="contactTextAr">Contact text — العربية</span><textarea id="setting-contact-text-ar" rows="3" dir="rtl"></textarea></label>
+          <label><span data-i18n="email">Email</span><input id="setting-email" type="email"></label>
+          <label><span data-i18n="locationEn">Location — English</span><input id="setting-location-en" type="text"></label>
+          <label><span data-i18n="locationAr">Location — العربية</span><input id="setting-location-ar" type="text" dir="rtl"></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="socialSection">Social links</h3>
+          <label><span>LinkedIn</span><input id="setting-linkedin" type="url"></label>
+          <label><span>GitHub</span><input id="setting-github" type="url"></label>
+          <label><span>WhatsApp</span><input id="setting-whatsapp" type="url"></label>
+          <label><span>Facebook</span><input id="setting-facebook" type="url"></label>
+          <label><span>Instagram</span><input id="setting-instagram" type="url"></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="appearanceSection">Appearance</h3>
+          <label><span data-i18n="language">Language</span><select id="setting-language"><option value="en">English</option><option value="ar">العربية</option></select></label>
+          <label><span data-i18n="theme">Theme</span><select id="setting-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+          <label><span data-i18n="footerEn">Footer — English</span><input id="setting-footer-en" type="text"></label>
+          <label><span data-i18n="footerAr">Footer — العربية</span><input id="setting-footer-ar" type="text" dir="rtl"></label>
+        </section>
+      </div>
+
+      <div class="settings-actions">
+        <button class="btn btn-secondary" id="reset-settings" type="button" data-i18n="reset">Reset defaults</button>
+        <div>
+          <button class="btn btn-secondary" type="button" data-close-settings data-i18n="cancel">Cancel</button>
+          <button class="btn btn-primary" id="save-settings" type="button" data-i18n="saveChanges">Save changes</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <footer class="footer">
     <div class="footer-inner">
-      <span>© <span id="current-year">2026</span> Pavley Mousa</span>
-      <a href="#hero">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+      <span id="footer-text">© 2026 Pavley Mousa</span>
+      <a href="#hero"><span data-i18n="backToTop">Back to top </span><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
     </div>
   </footer>
 
@@ -474,8 +353,6 @@
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <noscript>
-    <div class="noscript-message">JavaScript is disabled. The portfolio content is still available, but interactive features are unavailable.</div>
-  </noscript>
+  <noscript><div class="noscript-message" data-i18n="noscript">JavaScript is disabled. The portfolio content is still available, but interactive features are unavailable.</div></noscript>
 </body>
 </html>
