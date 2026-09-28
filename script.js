@@ -2,16 +2,17 @@ const root = document.documentElement;
 const navbar = document.getElementById("navbar");
 const navToggle = document.getElementById("nav-toggle");
 const navMenu = document.getElementById("nav-menu");
-const navLinks = [...document.querySelectorAll(".nav-link")];
-const sections = [...document.querySelectorAll("main section[id], header[id]")];
-const revealItems = [...document.querySelectorAll(".reveal")];
+const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+const observedSections = Array.from(document.querySelectorAll("[data-observe-section]"));
+const revealItems = Array.from(document.querySelectorAll(".reveal"));
 const progressBar = document.getElementById("scroll-progress");
 const backToTop = document.getElementById("back-to-top");
 const themeToggle = document.getElementById("theme-toggle");
 const copyEmailButton = document.getElementById("copy-email");
 const copyFeedback = document.getElementById("copy-feedback");
+const currentYear = document.getElementById("current-year");
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function setMenu(open) {
   navMenu.classList.toggle("active", open);
@@ -20,6 +21,67 @@ function setMenu(open) {
   navToggle.innerHTML = open
     ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
     : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+}
+
+function updateScrollUI() {
+  const scrollTop = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+  progressBar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+  navbar.classList.toggle("scrolled", scrollTop > 20);
+  backToTop.classList.toggle("visible", scrollTop > 520);
+}
+
+function updateThemeButton() {
+  const light = root.dataset.theme === "light";
+  themeToggle.setAttribute("aria-pressed", String(light));
+  themeToggle.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+  themeToggle.innerHTML = light
+    ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
+    : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+}
+
+function setTheme(theme) {
+  root.dataset.theme = theme;
+  try {
+    localStorage.setItem("pavley-theme", theme);
+  } catch {
+    // Ignore storage failures and keep the theme for this session.
+  }
+  updateThemeButton();
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const helper = document.createElement("textarea");
+  helper.value = text;
+  helper.setAttribute("readonly", "");
+  helper.style.position = "fixed";
+  helper.style.opacity = "0";
+  document.body.appendChild(helper);
+  helper.select();
+  const success = document.execCommand("copy");
+  helper.remove();
+
+  if (!success) {
+    throw new Error("Copy command failed");
+  }
+}
+
+function showCopyFeedback(message, success) {
+  copyFeedback.textContent = message;
+  copyFeedback.classList.toggle("success", success);
+
+  window.clearTimeout(showCopyFeedback.timer);
+  showCopyFeedback.timer = window.setTimeout(() => {
+    copyFeedback.textContent = "";
+    copyFeedback.classList.remove("success");
+  }, 2600);
 }
 
 navToggle.addEventListener("click", () => {
@@ -31,113 +93,127 @@ navLinks.forEach((link) => {
 });
 
 document.addEventListener("click", (event) => {
-  if (!navMenu.classList.contains("active")) {
-    return;
-  }
+  if (!navMenu.classList.contains("active")) return;
 
-  if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+  const clickedInsideMenu = navMenu.contains(event.target);
+  const clickedToggle = navToggle.contains(event.target);
+
+  if (!clickedInsideMenu && !clickedToggle) {
     setMenu(false);
   }
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    setMenu(false);
-  }
+  if (event.key === "Escape") setMenu(false);
 });
-
-function updateScrollUI() {
-  const scrollTop = window.scrollY;
-  const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
-
-  progressBar.style.width = `${Math.min(progress, 100)}%`;
-  navbar.classList.toggle("scrolled", scrollTop > 24);
-  backToTop.classList.toggle("visible", scrollTop > 520);
-}
 
 window.addEventListener("scroll", updateScrollUI, { passive: true });
-updateScrollUI();
+window.addEventListener("resize", updateScrollUI);
 
 backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  window.scrollTo({
+    top: 0,
+    behavior: reducedMotionQuery.matches ? "auto" : "smooth"
+  });
 });
 
-const savedTheme = localStorage.getItem("pavley-theme");
-
-if (savedTheme === "light" || savedTheme === "dark") {
-  root.dataset.theme = savedTheme;
+let storedTheme = null;
+try {
+  storedTheme = localStorage.getItem("pavley-theme");
+} catch {
+  storedTheme = null;
 }
 
-function updateThemeButton() {
-  const isLight = root.dataset.theme === "light";
-  themeToggle.setAttribute("aria-pressed", String(isLight));
-  themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
-  themeToggle.innerHTML = isLight
-    ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
-    : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+if (storedTheme === "light" || storedTheme === "dark") {
+  root.dataset.theme = storedTheme;
 }
 
 updateThemeButton();
 
 themeToggle.addEventListener("click", () => {
-  const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
-  root.dataset.theme = nextTheme;
-  localStorage.setItem("pavley-theme", nextTheme);
-  updateThemeButton();
+  const next = root.dataset.theme === "light" ? "dark" : "light";
+  setTheme(next);
 });
 
-if (!prefersReducedMotion && "IntersectionObserver" in window) {
+function setupReveal() {
+  if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
     },
     { threshold: 0.12 }
   );
 
   revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-if ("IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver(
+function setupActiveSection() {
+  if (!("IntersectionObserver" in window)) return;
+
+  const linkById = new Map(
+    navLinks.map((link) => [link.getAttribute("href").slice(1), link])
+  );
+
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
+        if (!entry.isIntersecting) return;
+
+        navLinks.forEach((link) => link.classList.remove("active"));
+        const activeLink = linkById.get(entry.target.id);
+
+        if (activeLink) {
+          activeLink.classList.add("active");
+          activeLink.setAttribute("aria-current", "page");
         }
 
         navLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+          if (link !== activeLink) link.removeAttribute("aria-current");
         });
       });
     },
     {
-      rootMargin: "-25% 0px -58% 0px",
+      rootMargin: "-22% 0px -62% 0px",
       threshold: 0
     }
   );
 
-  sections.forEach((section) => sectionObserver.observe(section));
+  observedSections.forEach((section) => observer.observe(section));
 }
 
-copyEmailButton.addEventListener("click", async () => {
-  const email = copyEmailButton.dataset.email;
+if (copyEmailButton) {
+  copyEmailButton.addEventListener("click", async () => {
+    const email = copyEmailButton.dataset.email;
+    if (!email) return;
 
-  try {
-    await navigator.clipboard.writeText(email);
-    copyFeedback.textContent = "Email copied to clipboard.";
-  } catch {
-    copyFeedback.textContent = "Copy failed. Use the email button instead.";
+    try {
+      await copyText(email);
+      showCopyFeedback("Email copied to clipboard.", true);
+    } catch {
+      showCopyFeedback("Copy failed. Use the email button instead.", false);
+    }
+  });
+}
+
+reducedMotionQuery.addEventListener?.("change", () => {
+  if (reducedMotionQuery.matches) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
   }
-
-  window.setTimeout(() => {
-    copyFeedback.textContent = "";
-  }, 2600);
 });
+
+if (currentYear) {
+  currentYear.textContent = String(new Date().getFullYear());
+}
+
+setMenu(false);
+setupReveal();
+setupActiveSection();
+updateScrollUI();
