@@ -1,0 +1,2783 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08111f" />
+  <meta id="meta-description" name="description" content="Pavley Mousa — Computer Science and Artificial Intelligence student portfolio." />
+  <meta name="author" content="Pavley Mousa" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta id="og-title" property="og:title" content="Pavley Mousa | Developer Portfolio" />
+  <meta id="og-description" property="og:description" content="Computer Science and Artificial Intelligence student building practical software and web projects." />
+  <meta property="og:site_name" content="Pavley Mousa Portfolio" />
+  <title id="page-title">Pavley Mousa | Developer Portfolio</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+:root {
+  --bg: #08111f;
+  --bg-soft: #0d1728;
+  --surface: rgba(16, 29, 49, 0.76);
+  --surface-solid: #101d31;
+  --surface-hover: #14243c;
+  --border: rgba(148, 163, 184, 0.14);
+  --border-strong: rgba(56, 189, 248, 0.38);
+  --text: #f8fafc;
+  --text-soft: #cbd5e1;
+  --text-muted: #8ea0b8;
+  --primary: #38bdf8;
+  --primary-strong: #0ea5e9;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --max-width: 1120px;
+  --nav-height: 76px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 18px);
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --bg: #f4f7fb;
+  --bg-soft: #eaf0f8;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-solid: #ffffff;
+  --surface-hover: #f3f7fc;
+  --border: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(2, 132, 199, 0.34);
+  --text: #0f172a;
+  --text-soft: #334155;
+  --text-muted: #64748b;
+  --primary: #0284c7;
+  --primary-strong: #0369a1;
+  --shadow: 0 22px 60px rgba(15, 23, 42, 0.11);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(56, 189, 248, 0.11), transparent 28rem),
+    radial-gradient(circle at 85% 38%, rgba(14, 165, 233, 0.07), transparent 30rem),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+  transition: background .25s ease, color .25s ease;
+}
+
+a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.42);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 4000;
+  transform: translateY(-160%);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform .2s ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: 0;
+  height: 3px;
+  z-index: 2600;
+  background: linear-gradient(90deg, var(--primary), #7dd3fc);
+  box-shadow: 0 0 16px rgba(56, 189, 248, .55);
+}
+
+.section-shell {
+  width: min(92%, var(--max-width));
+  margin: 0 auto;
+}
+
+.section {
+  position: relative;
+  padding: 110px 0;
+}
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 2000;
+  height: var(--nav-height);
+  border-bottom: 1px solid transparent;
+  background: rgba(8, 17, 31, .62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(8, 17, 31, .9);
+  border-color: var(--border);
+  box-shadow: 0 12px 40px rgba(0,0,0,.18);
+}
+
+html[data-theme="light"] .navbar { background: rgba(244, 247, 251, .72); }
+html[data-theme="light"] .navbar.scrolled {
+  background: rgba(244, 247, 251, .92);
+  box-shadow: 0 12px 40px rgba(15,23,42,.08);
+}
+
+.nav-container {
+  width: min(92%, var(--max-width));
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-logo {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-logo span { color: var(--primary); }
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-left: auto;
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-muted);
+  font-size: .88rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active { color: var(--text); }
+
+.nav-link:hover::after,
+.nav-link.active::after { transform: scaleX(1); }
+
+.nav-contact {
+  padding: 9px 15px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  color: var(--text) !important;
+}
+
+.nav-contact::after { display: none; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 0;
+  order: 3;
+}
+
+.icon-button,
+.nav-toggle {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.icon-button:hover,
+.nav-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.nav-toggle { display: none; }
+
+.hero {
+  min-height: 100vh;
+  padding-top: calc(var(--nav-height) + 58px);
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 72px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-soft);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 5px rgba(74,222,128,.12);
+}
+
+.hero h1 {
+  max-width: 790px;
+  margin-top: 22px;
+  font-size: clamp(3rem, 6.1vw, 5.35rem);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  display: block;
+  color: transparent;
+  background: linear-gradient(120deg, var(--primary), #7dd3fc 52%, #bae6fd);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero-copy {
+  max-width: 700px;
+  margin-top: 25px;
+  color: var(--text-muted);
+  font-size: 1.01rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--primary-strong);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(14,165,233,.22);
+}
+
+.btn-primary:hover { background: var(--primary); }
+
+.btn-secondary {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 27px;
+  color: var(--text-muted);
+  font-size: .78rem;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-meta i { color: var(--primary); }
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(155deg, rgba(15,28,48,.9), rgba(6,15,28,.82));
+  box-shadow: var(--shadow);
+  transform: rotate(1.5deg);
+  transition: transform .3s ease, border-color .3s ease;
+}
+
+.hero-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  border-color: var(--border-strong);
+}
+
+html[data-theme="light"] .hero-card {
+  background: linear-gradient(155deg, rgba(255,255,255,.96), rgba(239,246,255,.92));
+}
+
+.terminal-top {
+  display: flex;
+  gap: 7px;
+  padding: 16px 17px;
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-top span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: .55;
+}
+
+.terminal-body {
+  padding: 28px 24px 36px;
+  color: var(--text-soft);
+  font: 500 .84rem/2 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.code-purple { color: #c084fc; }
+.code-key { color: var(--primary); }
+.code-string { color: #86efac; }
+.code-indent { padding-left: 20px; }
+
+.terminal-line { margin-top: 12px; }
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  vertical-align: -3px;
+  background: var(--primary);
+  animation: blink 1s steps(1) infinite;
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 31px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: .7rem;
+  text-decoration: none;
+}
+
+.scroll-hint i {
+  color: var(--primary);
+  animation: float 1.8s ease-in-out infinite;
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.hero-glow-one {
+  width: 260px;
+  height: 260px;
+  top: 18%;
+  right: 12%;
+  background: rgba(56,189,248,.1);
+}
+
+.hero-glow-two {
+  width: 180px;
+  height: 180px;
+  bottom: 14%;
+  left: 3%;
+  background: rgba(14,165,233,.08);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 38px;
+}
+
+.section-kicker {
+  color: var(--primary);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.section-heading h2,
+.contact-card h2 {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+
+.section-heading p,
+.contact-card > p {
+  margin-top: 13px;
+  color: var(--text-muted);
+  font-size: .95rem;
+}
+
+.glass-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 22px;
+}
+
+.about-card {
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.card-icon,
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: rgba(56,189,248,.08);
+  color: var(--primary);
+}
+
+.about-card h3 { margin-top: 22px; font-size: 1.45rem; }
+.about-card p { margin-top: 12px; color: var(--text-muted); font-size: .95rem; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.stat-card {
+  min-height: 180px;
+  padding: 24px 19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: var(--radius-md);
+}
+
+.stat-card strong {
+  color: var(--primary);
+  font-size: 2.35rem;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.stat-card span {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: .78rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.skill-card {
+  min-height: 235px;
+  padding: 25px;
+  border-radius: var(--radius-md);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.skill-card h3 { margin-top: 20px; font-size: 1.05rem; }
+.skill-card p { margin-top: 8px; color: var(--text-muted); font-size: .84rem; }
+
+.skill-level {
+  display: inline-flex;
+  margin-top: 16px;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: rgba(56,189,248,.08);
+  color: var(--primary);
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.project-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.project-featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+}
+
+.project-visual {
+  min-height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(56,189,248,.13), transparent 65%),
+    #0a1526;
+}
+
+.project-visual i {
+  color: var(--primary);
+  font-size: 4rem;
+  filter: drop-shadow(0 12px 28px rgba(56,189,248,.18));
+  transition: transform .25s ease;
+}
+
+.project-card:hover .project-visual i { transform: scale(1.08); }
+
+.music-visual { background:
+    linear-gradient(135deg, rgba(168,85,247,.16), transparent 65%),
+    #101324;
+}
+
+.gallery-visual { background:
+    linear-gradient(135deg, rgba(45,212,191,.14), transparent 65%),
+    #0b1923;
+}
+
+.calculator-visual { background:
+    linear-gradient(135deg, rgba(251,191,36,.14), transparent 65%),
+    #19150c;
+}
+
+html[data-theme="light"] .project-visual {
+  background:
+    linear-gradient(135deg, rgba(14,165,233,.12), transparent 65%),
+    #eaf3fb;
+}
+
+html[data-theme="light"] .music-visual {
+  background:
+    linear-gradient(135deg, rgba(168,85,247,.1), transparent 65%),
+    #f5f1fb;
+}
+
+html[data-theme="light"] .gallery-visual {
+  background:
+    linear-gradient(135deg, rgba(45,212,191,.1), transparent 65%),
+    #eefbf8;
+}
+
+html[data-theme="light"] .calculator-visual {
+  background:
+    linear-gradient(135deg, rgba(251,191,36,.1), transparent 65%),
+    #fff8e7;
+}
+
+.project-number {
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  color: var(--text-muted);
+  font: 700 .75rem/1 "SFMono-Regular", Consolas, monospace;
+}
+
+.visual-label {
+  position: absolute;
+  right: 18px;
+  bottom: 17px;
+  color: var(--text-muted);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.project-content {
+  min-width: 0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-tag {
+  color: var(--primary);
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.project-content h3 { margin-top: 8px; font-size: 1.45rem; }
+.project-content p { margin-top: 10px; color: var(--text-muted); font-size: .9rem; }
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 19px;
+}
+
+.tech-list span {
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: rgba(2,132,199,.05);
+  color: var(--text-soft);
+  font-size: .68rem;
+}
+
+.text-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--primary);
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.project-note {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 19px;
+  color: var(--text-muted);
+  font-size: .7rem;
+}
+
+.project-note i { color: var(--warning); margin-top: 3px; }
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 16px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 24px;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 15px;
+  align-items: start;
+}
+
+.timeline-marker {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--primary);
+}
+
+.timeline-card {
+  min-height: 126px;
+  padding: 20px 23px;
+  border-radius: var(--radius-md);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.timeline-label {
+  color: var(--primary);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.timeline-card h3 { margin-top: 6px; font-size: 1rem; }
+.timeline-card p { margin-top: 3px; color: var(--text-soft); font-size: .82rem; }
+
+.timeline-year {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: .7rem;
+}
+
+.contact-section { padding-bottom: 125px; }
+
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  padding: 44px;
+  border-radius: 28px;
+}
+
+.contact-card::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -90px;
+  top: -100px;
+  border-radius: 50%;
+  background: rgba(56,189,248,.1);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.contact-card > * { position: relative; z-index: 1; }
+.contact-card h2 { max-width: 700px; }
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 25px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  color: var(--primary);
+}
+
+.copy-feedback {
+  min-height: 20px;
+  margin-top: 10px !important;
+  font-size: .72rem !important;
+  color: var(--text-muted) !important;
+}
+
+.copy-feedback.success { color: var(--success) !important; }
+
+.glass-card:hover,
+.about-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  background: rgba(7,14,25,.35);
+}
+
+html[data-theme="light"] .footer { background: rgba(255,255,255,.45); }
+
+.footer-inner {
+  width: min(92%, var(--max-width));
+  min-height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--text-muted);
+  font-size: .76rem;
+}
+
+.footer a { color: var(--text-soft); text-decoration: none; }
+.footer a:hover { color: var(--primary); }
+
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  z-index: 1600;
+  border: 1px solid var(--border-strong);
+  border-radius: 13px;
+  background: var(--surface-solid);
+  color: var(--primary);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.noscript-message {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 4000;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-solid);
+  color: var(--text);
+  font-size: .78rem;
+  text-align: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes blink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 42px; }
+  .hero-card { max-width: 720px; }
+  .about-layout { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-featured { grid-template-columns: 1fr; }
+  .project-visual { min-height: 220px; border-right: 0; border-bottom: 1px solid var(--border); }
+}
+
+@media (max-width: 760px) {
+  :root { --nav-height: 68px; }
+  .navbar { height: var(--nav-height); }
+  .nav-container { width: 94%; }
+  .nav-actions { gap: 7px; order: 2; margin-left: auto; }
+  .nav-toggle { display: inline-flex; }
+
+  .nav-menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 3%;
+    right: 3%;
+    display: grid;
+    gap: 4px;
+    padding: 11px;
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface-solid);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-menu li { width: 100%; }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 10px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active { background: var(--surface-hover); }
+  .nav-link::after { display: none; }
+
+  .nav-contact {
+    margin-top: 4px;
+    text-align: center;
+    background: var(--primary-strong);
+    color: #fff !important;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 54px);
+    padding-bottom: 96px;
+  }
+
+  .hero h1 { font-size: clamp(2.55rem, 12vw, 4rem); }
+  .hero-copy { font-size: .92rem; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+
+  .section { padding: 82px 0; }
+  .stats-grid,
+  .skills-grid,
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-featured { grid-column: span 1; }
+
+  .timeline::before { left: 22px; }
+  .timeline-item { grid-template-columns: 46px 1fr; gap: 12px; }
+  .timeline-marker { width: 46px; height: 46px; }
+
+  .contact-card { padding: 30px 22px; }
+  .contact-actions .btn { width: 100%; }
+
+  .footer-inner {
+    min-height: 86px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .back-to-top { right: 16px; bottom: 16px; }
+  .scroll-hint { display: none; }
+}
+
+@media (max-width: 420px) {
+  .hero-actions .btn { width: 100%; }
+  .terminal-body { padding: 22px 18px 28px; font-size: .72rem; }
+  .code-indent { padding-left: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Full-control settings */
+body.settings-open { overflow: hidden; }
+
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3500;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+.settings-overlay.hidden { display: none; }
+.settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 8, 18, .78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.settings-card {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+  max-height: min(92vh, 980px);
+  overflow: auto;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface-solid);
+  color: var(--text);
+  box-shadow: 0 30px 100px rgba(0,0,0,.38);
+}
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.settings-header h2 {
+  margin-top: 7px;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  letter-spacing: -.03em;
+}
+.settings-header p {
+  max-width: 760px;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: .86rem;
+}
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+.settings-section {
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+}
+.settings-section h3 {
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+.settings-section label {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+}
+.settings-section label > span {
+  color: var(--text-muted);
+  font-size: .75rem;
+  font-weight: 700;
+}
+.settings-section input,
+.settings-section select,
+.settings-section textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  outline: 0;
+  background: var(--surface-hover);
+  color: var(--text);
+}
+.settings-section textarea {
+  min-height: 82px;
+  resize: vertical;
+}
+.settings-section input[type="color"] { padding: 4px; }
+.settings-section input:focus,
+.settings-section select:focus,
+.settings-section textarea:focus {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 3px rgba(56,189,248,.12);
+}
+.settings-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.settings-actions > div { display: flex; gap: 9px; }
+.custom-brand-logo {
+  width: 22px;
+  height: 22px;
+  margin-inline-end: 7px;
+  border-radius: 7px;
+  object-fit: cover;
+  vertical-align: -5px;
+}
+.language-button {
+  min-width: 72px;
+  font-size: .78rem;
+  font-weight: 800;
+}
+@media (max-width: 820px) {
+  .settings-grid { grid-template-columns: 1fr; }
+  .settings-card { padding: 17px; border-radius: 19px; }
+}
+@media (max-width: 560px) {
+  .settings-overlay { padding: 8px; }
+  .settings-header { gap: 8px; }
+  .settings-actions { flex-direction: column; align-items: stretch; }
+  .settings-actions > div { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .settings-actions .btn { width: 100%; }
+  .language-button { min-width: 64px; padding-inline: 8px; }
+}
+
+.nav-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+}
+.nav-logo-wrap #site-subtitle {
+  color: var(--text-muted);
+  font-size: .68rem;
+  font-weight: 600;
+  padding-left: 10px;
+  border-left: 1px solid var(--border);
+  white-space: nowrap;
+}
+html[dir="rtl"] .nav-logo-wrap #site-subtitle {
+  padding-left: 0;
+  padding-right: 10px;
+  border-left: 0;
+  border-right: 1px solid var(--border);
+}
+@media (max-width: 560px) {
+  .nav-logo-wrap #site-subtitle { display: none; }
+}
+
+
+/* Content manager */
+.generic-visual {
+  background: linear-gradient(135deg, rgba(56,189,248,.11), transparent 65%), #111827;
+}
+.manager-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  padding-bottom: 2px;
+}
+.manager-tab {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 14px;
+  background: var(--surface-hover);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.manager-tab.active,
+.manager-tab:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.manager-panel { display: none; margin-top: 16px; }
+.manager-panel.active { display: grid; grid-template-columns: minmax(260px,.75fr) minmax(360px,1.25fr); gap: 16px; }
+.manager-list,
+.manager-editor {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.manager-list { display: grid; align-content: start; gap: 8px; }
+.manager-row {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-hover);
+}
+.manager-row-info { min-width: 0; }
+.manager-row-info strong,
+.manager-row-info span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.manager-row-info strong { font-size: .8rem; }
+.manager-row-info span { margin-top: 3px; color: var(--text-muted); font-size: .68rem; }
+.manager-row-actions { display: flex; gap: 4px; }
+.mini-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-solid);
+  color: var(--text-soft);
+  cursor: pointer;
+}
+.mini-button:hover:not(:disabled) { border-color: var(--border-strong); color: var(--primary); }
+.mini-button:disabled { opacity: .35; cursor: not-allowed; }
+.mini-button.danger:hover { color: #f87171; border-color: rgba(248,113,113,.45); }
+.manager-add { width: 100%; justify-content: center; margin-top: 2px; }
+.manager-empty { padding: 18px 10px; color: var(--text-muted); text-align: center; font-size: .74rem; }
+.editor-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 5px; }
+.editor-heading strong { font-size: .9rem; }
+.editor-mode { color: var(--primary); font-size: .68rem; }
+.manager-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 12px; }
+.field-wide { grid-column: 1 / -1; }
+.checkbox-field { display: flex !important; align-items: center; gap: 9px !important; min-height: 42px; padding-top: 18px; }
+.checkbox-field input { width: 17px !important; min-height: 17px !important; }
+.editor-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 15px; }
+#manager-feedback { min-height: 20px; margin-top: 8px; color: var(--text-muted); font-size: .72rem; }
+#manager-feedback.success { color: var(--success); }
+@media (max-width: 920px) { .manager-panel.active { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .manager-fields { grid-template-columns: 1fr; } .field-wide { grid-column: auto; } .editor-actions .btn { width: 100%; } .editor-actions { flex-direction: column; } }
+html[dir="rtl"] .project-visual { border-right: 0; border-left: 1px solid var(--border); }
+@media (max-width: 960px) { html[dir="rtl"] .project-visual { border-left: 0; border-bottom: 1px solid var(--border); } }
+
+
+/* Visual refinement v2 */
+:root {
+  --bg: #070b14;
+  --bg-soft: #0d1422;
+  --surface: rgba(15, 23, 42, .72);
+  --surface-solid: #0f172a;
+  --surface-hover: #162238;
+  --border: rgba(148, 163, 184, .13);
+  --border-strong: rgba(56, 189, 248, .34);
+  --text: #f8fafc;
+  --text-soft: #d5deeb;
+  --text-muted: #91a0b5;
+  --primary: #38bdf8;
+  --primary-strong: #0ea5e9;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --shadow: 0 22px 60px rgba(0,0,0,.26);
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 11px;
+  --max-width: 1160px;
+  --nav-height: 74px;
+}
+
+html[data-theme="light"] {
+  --bg: #f7f9fc;
+  --bg-soft: #eef3f9;
+  --surface: rgba(255,255,255,.78);
+  --surface-solid: #ffffff;
+  --surface-hover: #f7faff;
+  --border: rgba(15,23,42,.09);
+  --border-strong: rgba(2,132,199,.27);
+  --text: #0f172a;
+  --text-soft: #334155;
+  --text-muted: #66768b;
+  --primary: #0284c7;
+  --primary-strong: #0369a1;
+  --shadow: 0 18px 50px rgba(15,23,42,.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(56,189,248,.08), transparent 24rem),
+    radial-gradient(circle at 92% 28%, rgba(99,102,241,.055), transparent 26rem),
+    var(--bg);
+  line-height: 1.62;
+}
+
+.section-shell { width: min(91%, var(--max-width)); }
+
+.section { padding: 104px 0; }
+
+.nav-container { gap: 18px; }
+
+.nav-logo {
+  font-size: 1.02rem;
+  letter-spacing: -.025em;
+}
+
+.nav-logo-wrap #site-subtitle {
+  font-size: .67rem;
+  opacity: .86;
+}
+
+.nav-menu { gap: 24px; }
+
+.nav-link {
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.nav-actions { gap: 7px; }
+
+.icon-button,
+.nav-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+.language-button {
+  min-width: 70px;
+  padding-inline: 11px;
+}
+
+.hero {
+  padding-top: calc(var(--nav-height) + 54px);
+  padding-bottom: 74px;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+  gap: 64px;
+}
+
+.eyebrow {
+  padding: 7px 11px;
+  font-size: .73rem;
+  background: rgba(15,23,42,.55);
+}
+
+html[data-theme="light"] .eyebrow { background: rgba(255,255,255,.72); }
+
+.hero h1 {
+  max-width: 760px;
+  margin-top: 20px;
+  font-size: clamp(2.8rem, 5.6vw, 5rem);
+  line-height: 1.01;
+}
+
+.hero h1 span {
+  background: linear-gradient(125deg, var(--text) 0%, var(--text) 38%, var(--primary) 78%, #93c5fd 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero h1 #hero-highlight {
+  color: transparent;
+}
+
+.hero-copy {
+  max-width: 680px;
+  margin-top: 22px;
+  font-size: .96rem;
+  line-height: 1.8;
+}
+
+.hero-actions { margin-top: 28px; }
+
+.btn {
+  min-height: 46px;
+  padding: 11px 17px;
+  border-radius: 11px;
+  font-size: .84rem;
+}
+
+.btn-primary {
+  box-shadow: 0 10px 26px rgba(14,165,233,.17);
+}
+
+.hero-meta {
+  gap: 10px 16px;
+  margin-top: 24px;
+  font-size: .74rem;
+}
+
+.hero-card {
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(16,30,52,.93), rgba(7,14,26,.88));
+  box-shadow: 0 28px 70px rgba(0,0,0,.26);
+}
+
+html[data-theme="light"] .hero-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(242,247,253,.94));
+}
+
+.terminal-top { padding: 14px 16px; }
+
+.terminal-body {
+  padding: 24px 22px 31px;
+  font-size: .78rem;
+  line-height: 2.05;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.section-kicker { font-size: .67rem; }
+
+.section-heading h2,
+.contact-card h2 {
+  margin-top: 7px;
+  font-size: clamp(1.9rem, 3.7vw, 2.85rem);
+  line-height: 1.08;
+}
+
+.section-heading p,
+.contact-card > p {
+  max-width: 720px;
+  margin-top: 11px;
+  font-size: .9rem;
+  line-height: 1.75;
+}
+
+.about-layout { gap: 20px; }
+
+.about-card {
+  padding: 30px;
+}
+
+.card-icon,
+.skill-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+}
+
+.about-card h3 { margin-top: 19px; font-size: 1.28rem; }
+
+.about-card p {
+  margin-top: 10px;
+  font-size: .88rem;
+  line-height: 1.8;
+}
+
+.stats-grid { gap: 12px; }
+
+.stat-card {
+  min-height: 164px;
+  padding: 21px 17px;
+}
+
+.stat-card strong { font-size: 2.05rem; }
+
+.stat-card span {
+  margin-top: 10px;
+  font-size: .72rem;
+  line-height: 1.55;
+}
+
+.skills-grid { gap: 14px; }
+
+.skill-card {
+  min-height: 218px;
+  padding: 22px;
+}
+
+.skill-card h3 {
+  margin-top: 17px;
+  font-size: 1rem;
+}
+
+.skill-card p {
+  margin-top: 7px;
+  font-size: .8rem;
+  line-height: 1.72;
+}
+
+.skill-level {
+  margin-top: 14px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: .62rem;
+}
+
+.projects-grid { gap: 16px; }
+
+.project-card { border-radius: 20px; }
+
+.project-featured {
+  grid-template-columns: .76fr 1.24fr;
+}
+
+.project-visual { min-height: 232px; }
+
+.project-visual i { font-size: 3.35rem; }
+
+.project-number {
+  top: 15px;
+  left: 16px;
+  font-size: .7rem;
+}
+
+html[dir="rtl"] .project-number {
+  left: auto;
+  right: 16px;
+}
+
+.visual-label {
+  right: 16px;
+  bottom: 15px;
+  font-size: .58rem;
+}
+
+html[dir="rtl"] .visual-label {
+  right: auto;
+  left: 16px;
+}
+
+.project-content { padding: 25px; }
+
+.project-tag {
+  font-size: .63rem;
+}
+
+.project-content h3 {
+  margin-top: 7px;
+  font-size: 1.28rem;
+}
+
+.project-content p {
+  margin-top: 9px;
+  font-size: .83rem;
+  line-height: 1.72;
+}
+
+.tech-list {
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.tech-list span {
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: .62rem;
+}
+
+.text-link {
+  margin-top: 19px;
+  font-size: .76rem;
+}
+
+.project-note {
+  margin-top: 16px;
+  font-size: .66rem;
+  line-height: 1.55;
+}
+
+.timeline { gap: 14px; }
+
+.timeline::before {
+  left: 22px;
+}
+
+html[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 22px;
+}
+
+.timeline-item {
+  grid-template-columns: 46px 1fr;
+  gap: 13px;
+}
+
+html[dir="rtl"] .timeline-item {
+  grid-template-columns: 1fr 46px;
+}
+
+.timeline-marker {
+  width: 46px;
+  height: 46px;
+}
+
+.timeline-card {
+  min-height: 116px;
+  padding: 18px 21px;
+}
+
+.timeline-label { font-size: .59rem; }
+
+.timeline-card h3 {
+  margin-top: 5px;
+  font-size: .96rem;
+}
+
+.timeline-card p {
+  margin-top: 3px;
+  font-size: .78rem;
+}
+
+.timeline-year {
+  margin-top: 8px;
+  font-size: .67rem;
+}
+
+.contact-section { padding-bottom: 110px; }
+
+.contact-card {
+  padding: 40px;
+  border-radius: 24px;
+}
+
+.social-links {
+  gap: 8px;
+  margin-top: 23px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+.footer-inner {
+  min-height: 72px;
+  font-size: .7rem;
+}
+
+/* Settings / content manager refinement */
+.settings-overlay { padding: 14px; }
+
+.settings-card {
+  width: min(1180px, 100%);
+  max-height: min(94vh, 1020px);
+  padding: 25px;
+  border-radius: 22px;
+}
+
+.settings-header {
+  margin-bottom: 16px;
+}
+
+.settings-header h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+}
+
+.settings-header p {
+  font-size: .8rem;
+  line-height: 1.65;
+}
+
+.settings-grid { gap: 12px; }
+
+.settings-section {
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.settings-section h3 { font-size: .92rem; }
+
+.settings-section label { margin-top: 10px; }
+
+.settings-section label > span {
+  font-size: .68rem;
+}
+
+.settings-section input,
+.settings-section select,
+.settings-section textarea {
+  min-height: 40px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: .78rem;
+}
+
+.settings-section textarea {
+  min-height: 72px;
+}
+
+.content-manager {
+  margin-top: 14px;
+  padding-top: 17px;
+  border-top: 1px solid var(--border);
+}
+
+.content-manager h3 {
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.content-manager-head p {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: .76rem;
+  line-height: 1.65;
+}
+
+#manager-feedback {
+  min-height: 18px;
+  margin: 9px 0 0;
+  font-size: .68rem;
+}
+
+.manager-tabs {
+  margin-top: 12px;
+  gap: 6px;
+}
+
+.manager-tab {
+  padding: 8px 12px;
+  border-radius: 9px;
+  font-size: .72rem;
+}
+
+.manager-panel { margin-top: 12px; }
+
+.manager-panel.active {
+  grid-template-columns: minmax(230px,.7fr) minmax(360px,1.3fr);
+  gap: 12px;
+}
+
+.manager-list,
+.manager-editor {
+  padding: 12px;
+  border-radius: 14px;
+}
+
+.manager-list { gap: 6px; }
+
+.manager-row {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.manager-row-info strong { font-size: .72rem; }
+
+.manager-row-info span {
+  font-size: .62rem;
+}
+
+.mini-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  font-size: .78rem;
+}
+
+.manager-add {
+  min-height: 40px;
+  padding: 9px 12px;
+  font-size: .74rem;
+}
+
+.manager-empty {
+  padding: 14px 8px;
+  font-size: .68rem;
+}
+
+.editor-heading strong { font-size: .82rem; }
+
+.editor-mode { font-size: .62rem; }
+
+.manager-fields { gap: 0 10px; }
+
+.editor-actions {
+  margin-top: 12px;
+}
+
+.editor-actions .btn {
+  min-height: 40px;
+  font-size: .74rem;
+}
+
+@media (max-width: 960px) {
+  .hero-grid { gap: 42px; }
+  .project-featured { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .section { padding: 82px 0; }
+  .hero {
+    padding-top: calc(var(--nav-height) + 48px);
+    padding-bottom: 78px;
+  }
+  .hero-grid { gap: 34px; }
+  .hero h1 { font-size: clamp(2.45rem, 11vw, 3.7rem); }
+  .hero-copy { font-size: .87rem; }
+  .section-heading h2,
+  .contact-card h2 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .contact-card { padding: 28px 21px; }
+  .settings-card { padding: 16px; }
+  .manager-panel.active { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .section-shell { width: min(92%, 1160px); }
+  .nav-logo { font-size: .95rem; }
+  .nav-actions { gap: 5px; }
+  .icon-button,
+  .nav-toggle { width: 38px; height: 38px; }
+  .language-button { min-width: 62px; padding-inline: 8px; }
+  .hero h1 { letter-spacing: -.045em; }
+  .hero-meta { font-size: .7rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card { min-height: 110px; }
+  .skills-grid,
+  .projects-grid { gap: 12px; }
+  .skill-card { min-height: auto; }
+  .project-content { padding: 21px; }
+  .timeline-item { grid-template-columns: 42px 1fr; gap: 10px; }
+  html[dir="rtl"] .timeline-item { grid-template-columns: 1fr 42px; }
+  .timeline-marker { width: 42px; height: 42px; }
+  .timeline::before { left: 20px; }
+  html[dir="rtl"] .timeline::before { left: auto; right: 20px; }
+  .settings-actions > div { gap: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card { transform: none; }
+}
+
+</style>
+  <script defer>
+const root=document.documentElement;
+const navbar=document.getElementById("navbar");
+const navToggle=document.getElementById("nav-toggle");
+const navMenu=document.getElementById("nav-menu");
+const navLinks=Array.from(document.querySelectorAll(".nav-link"));
+const sections=Array.from(document.querySelectorAll("[data-observe-section]"));
+const progressBar=document.getElementById("scroll-progress");
+const backToTop=document.getElementById("back-to-top");
+const themeToggle=document.getElementById("theme-toggle");
+const languageToggle=document.getElementById("language-toggle");
+const settingsToggle=document.getElementById("settings-toggle");
+const settingsModal=document.getElementById("settings-modal");
+const copyEmailButton=document.getElementById("copy-email");
+const copyFeedback=document.getElementById("copy-feedback");
+const currentYear=document.getElementById("stat-year");
+const prefersReducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+const SETTINGS_KEY="pavley-portfolio-settings-v3";
+const CONTENT_KEY="pavley-portfolio-content-v1";
+const VISUAL_STYLES=["generic-visual","bevo-visual","music-visual","gallery-visual","calculator-visual"];
+const DEFAULT_SETTINGS={
+  language:"en",theme:"dark",siteEn:"Pavley Mousa",siteAr:"بافلي موسى",subtitleEn:"Developer Portfolio",subtitleAr:"بورتفوليو مطور برمجيات",
+  logoUrl:"",accent:"#38bdf8",heroBadgeEn:"Computer Science & AI Student",heroBadgeAr:"طالب علوم حاسب وذكاء اصطناعي",
+  heroTitleEn:"I build useful software with",heroTitleAr:"ببني برامج مفيدة باستخدام",heroHighlightEn:"code, curiosity, and consistency.",heroHighlightAr:"الكود، الفضول، والاستمرارية.",
+  heroDescriptionEn:"I’m Pavley Mousa, a Computer Science and Artificial Intelligence student focused on frontend development, C++, software engineering, and web security fundamentals.",
+  heroDescriptionAr:"أنا بافلي موسى، طالب علوم حاسب وذكاء اصطناعي، وبركز على تطوير الواجهات وC++ وهندسة البرمجيات وأساسيات أمان الويب.",
+  aboutTitleEn:"Learning by building real things.",aboutTitleAr:"بتعلم من خلال بناء حاجات حقيقية.",
+  aboutLeadEn:"I use projects to turn programming concepts into working interfaces, tools, and experiments.",aboutLeadAr:"بستخدم المشاريع عشان أحول مفاهيم البرمجة لواجهات وأدوات وتجارب شغالة.",
+  aboutTextEn:"I study Computer Science and Artificial Intelligence and build projects while I learn. My priorities are readable code, responsive design, practical problem solving, and steady improvement.",
+  aboutTextAr:"بدرس علوم الحاسب والذكاء الاصطناعي وببني مشاريع وأنا بتعلم. أهم حاجة عندي كود واضح، تصميم متجاوب، حل عملي للمشاكل، وتطور مستمر.",
+  contactTitleEn:"Let’s build something useful.",contactTitleAr:"يلا نبني حاجة مفيدة.",
+  contactTextEn:"Open to software development opportunities, freelance projects, and technical conversations.",contactTextAr:"متاح لفرص تطوير البرمجيات، المشاريع الحرة، والنقاشات التقنية.",
+  email:"bavlymosa29@gmail.com",locationEn:"Egypt",locationAr:"مصر",
+  linkedin:"https://www.linkedin.com/in/pavley-mousa-715533341",github:"https://github.com/pavley-mousa",whatsapp:"https://wa.me/201556126686",
+  facebook:"https://www.facebook.com/pavley.mousa",instagram:"https://www.instagram.com/pavley.mousa",
+  footerEn:"© 2026 Pavley Mousa",footerAr:"© 2026 بافلي موسى"
+};
+
+const DEFAULT_CONTENT={
+  skills:[
+    {id:"skill-html-css",nameEn:"HTML & CSS",nameAr:"HTML و CSS",descEn:"Semantic HTML, responsive layouts, accessibility, and modern CSS patterns.",descAr:"HTML دلالي، تصميم متجاوب، وصولية، وأنماط CSS حديثة.",catEn:"Frontend",catAr:"فرونت إند",icon:"fa-brands fa-html5"},
+    {id:"skill-js",nameEn:"JavaScript",nameAr:"JavaScript",descEn:"DOM manipulation, browser APIs, events, state, and interactive UI logic.",descAr:"التعامل مع DOM وواجهات المتصفح والأحداث والحالة والمنطق التفاعلي.",catEn:"Frontend",catAr:"فرونت إند",icon:"fa-brands fa-js"},
+    {id:"skill-cpp",nameEn:"C++",nameAr:"C++",descEn:"Programming fundamentals, functions, problem solving, and algorithm practice.",descAr:"أساسيات البرمجة والدوال وحل المشكلات والتدريب على الخوارزميات.",catEn:"Programming",catAr:"برمجة",icon:"fa-solid fa-code"},
+    {id:"skill-node",nameEn:"Node.js",nameAr:"Node.js",descEn:"JavaScript runtime concepts and backend foundations for web applications.",descAr:"مفاهيم تشغيل JavaScript وأساسيات الباك إند لتطبيقات الويب.",catEn:"Backend",catAr:"باك إند",icon:"fa-brands fa-node-js"},
+    {id:"skill-sql",nameEn:"SQL",nameAr:"SQL",descEn:"Relational models, schemas, queries, and application data fundamentals.",descAr:"النماذج العلائقية والـSchemas والاستعلامات وأساسيات بيانات التطبيقات.",catEn:"Data",catAr:"بيانات",icon:"fa-solid fa-database"},
+    {id:"skill-security",nameEn:"Web Security",nameAr:"أمان الويب",descEn:"Security fundamentals, safer browser practices, and common web risks.",descAr:"أساسيات الأمان وممارسات متصفح أكثر أمانًا ومخاطر الويب الشائعة.",catEn:"Security",catAr:"أمان",icon:"fa-solid fa-shield-halved"}
+  ],
+  projects:[
+    {id:"project-bevo",titleEn:"Bevo Stickers",titleAr:"Bevo Stickers",descEn:"A custom sticker shopping experience centered on product browsing, cart flow, media handling, and practical deployment.",descAr:"تجربة تسوق مخصصة للستيكرات، بتركز على عرض المنتجات وسلة الشراء والتعامل مع الوسائط والنشر العملي.",tagEn:"Featured",tagAr:"مميز",labelEn:"E-COMMERCE",labelAr:"تجارة إلكترونية",tech:["JavaScript","Cloudinary","Turso","Vercel"],link:"https://github.com/pavley-mousa/Bevo-stickers",icon:"fa-solid fa-store",visual:"bevo-visual",featured:true,noteEn:"",noteAr:""},
+    {id:"project-music",titleEn:"Music Player",titleAr:"مشغل موسيقى",descEn:"A browser-based player experiment with playlists, playback controls, local settings, and multiple audio source types.",descAr:"مشغل موسيقى على المتصفح فيه Playlists وتحكم في التشغيل وإعدادات محلية ومصادر صوت متعددة.",tagEn:"Frontend Practice",tagAr:"تطبيق فرونت إند",labelEn:"CODEALPHA TASK",labelAr:"مهمة CodeAlpha",tech:["HTML5","CSS","JavaScript","localStorage"],link:"https://github.com/pavley-mousa/codealpha_tasks_Music_Player",icon:"fa-solid fa-music",visual:"music-visual",featured:false,noteEn:"",noteAr:""},
+    {id:"project-gallery",titleEn:"Responsive Image Gallery",titleAr:"جاليري صور متجاوب",descEn:"A responsive image gallery focused on search, filters, responsive cards, local demo assets, and full-screen viewing.",descAr:"جاليري صور متجاوب فيه بحث وفلترة وكروت مرنة وعرض الصور بحجم كامل.",tagEn:"Frontend Practice",tagAr:"تطبيق فرونت إند",labelEn:"CODEALPHA TASK",labelAr:"مهمة CodeAlpha",tech:["HTML5","CSS","DOM","localStorage"],link:"https://github.com/pavley-mousa/codealpha_tasks_image_gallery",icon:"fa-solid fa-images",visual:"gallery-visual",featured:false,noteEn:"",noteAr:""},
+    {id:"project-calculator",titleEn:"Interactive Calculator",titleAr:"آلة حاسبة تفاعلية",descEn:"A compact browser calculator focused on arithmetic operations, input handling, keyboard support, and clean UI behavior.",descAr:"آلة حاسبة على المتصفح تركز على العمليات الحسابية والتعامل مع الإدخال ودعم الكيبورد.",tagEn:"Practice",tagAr:"تطبيق",labelEn:"CODEALPHA TASK",labelAr:"مهمة CodeAlpha",tech:["HTML5","CSS Grid","JavaScript"],link:"",icon:"fa-solid fa-calculator",visual:"calculator-visual",featured:false,noteEn:"Source link will be added when a dedicated repository is available.",noteAr:"رابط المصدر هيتضاف لما يبقى للمشروع Repository مستقل."}
+  ],
+  training:[
+    {id:"training-cpp",titleEn:"C++ Essentials 1",titleAr:"C++ Essentials 1",orgEn:"Cisco Networking Academy",orgAr:"Cisco Networking Academy",labelEn:"CERTIFIED",labelAr:"حاصل على شهادة",metaEn:"Programming fundamentals",metaAr:"أساسيات البرمجة",icon:"fa-solid fa-code"},
+    {id:"training-security",titleEn:"Introduction to Cybersecurity",titleAr:"مقدمة في الأمن السيبراني",orgEn:"Cisco Networking Academy",orgAr:"Cisco Networking Academy",labelEn:"CERTIFIED",labelAr:"حاصل على شهادة",metaEn:"Security fundamentals",metaAr:"أساسيات الأمان",icon:"fa-solid fa-shield-halved"},
+    {id:"training-huawei",titleEn:"Huawei ICT Academic Training",titleAr:"تدريب Huawei ICT الأكاديمي",orgEn:"Sphinx University & FCAI collaboration",orgAr:"تعاون جامعة سفنكس مع كلية الحاسبات والذكاء الاصطناعي",labelEn:"TRAINING",labelAr:"تدريب",metaEn:"Academic training",metaAr:"تدريب أكاديمي",icon:"fa-solid fa-network-wired"},
+    {id:"training-google",titleEn:"Google Developer Program",titleAr:"Google Developer Program",orgEn:"Developer community participation and DevFest attendance",orgAr:"مشاركة في مجتمع المطورين وحضور DevFest",labelEn:"COMMUNITY",labelAr:"مجتمع",metaEn:"Developer community",metaAr:"مجتمع المطورين",icon:"fa-brands fa-google"}
+  ]
+};
+
+const TRANSLATIONS={
+  en:{
+    skip:"Skip to content",navAbout:"About",navSkills:"Skills",navProjects:"Projects",navTraining:"Training",navContact:"Contact",
+    viewProjects:"View projects",getInTouch:"Get in touch",webDevelopment:"Web development",securityFundamentals:"Security fundamentals",scrollExplore:"Scroll to explore",
+    aboutKicker:"01 / ABOUT",aboutCardTitle:"Who I am",statSkills:"Practical skill areas",statProjects:"Featured projects",statJourney:"Current learning journey",
+    skillsKicker:"02 / SKILLS",skillsTitle:"My current toolkit.",skillsLead:"A practical foundation across web development, programming, data, and security.",
+    projectsKicker:"03 / PROJECTS",projectsTitle:"Selected work and practice.",projectsLead:"Projects that reflect what I’m learning and the way I approach building.",
+    featured:"Featured",frontendPractice:"Frontend Practice",practice:"Practice",viewSource:"View source",
+    trainingKicker:"04 / TRAINING",trainingTitle:"Courses and communities.",trainingLead:"Selected learning milestones from university, technical courses, and developer communities.",
+    certified:"CERTIFIED",training:"TRAINING",community:"COMMUNITY",nameRequired:"Enter a name in at least one language.",programmingFundamentals:"Programming fundamentals",academicTraining:"Academic training",developerCommunity:"Developer community",
+    googleText:"Developer community participation and DevFest attendance",contactKicker:"05 / CONTACT",sendEmail:"Send an email",copyEmail:"Copy email",backToTop:"Back to top",
+    settingsKicker:"USER SETTINGS",settingsTitle:"Full Site Control",settingsLead:"Edit site-wide settings and manage every skill, project, and training item. Changes are saved in this browser.",
+    identitySection:"Identity",siteNameEn:"Site name — English",siteNameAr:"Site name — العربية",subtitleEn:"Subtitle — English",subtitleAr:"Subtitle — العربية",logoUrl:"Logo URL",accent:"Accent color",
+    heroSection:"Hero",heroBadgeEn:"Badge — English",heroBadgeAr:"Badge — العربية",heroTitleEn:"Hero title — English",heroTitleAr:"Hero title — العربية",heroHighlightEn:"Highlight — English",heroHighlightAr:"Highlight — العربية",heroDescriptionEn:"Hero description — English",heroDescriptionAr:"Hero description — العربية",
+    aboutSection:"About",aboutTitleEn:"About title — English",aboutTitleAr:"About title — العربية",aboutLeadEn:"About lead — English",aboutLeadAr:"About lead — العربية",aboutTextEn:"About text — English",aboutTextAr:"About text — العربية",
+    contactSection:"Contact",contactTitleEn:"Contact title — English",contactTitleAr:"Contact title — العربية",contactTextEn:"Contact text — English",contactTextAr:"Contact text — العربية",email:"Email",locationEn:"Location — English",locationAr:"Location — العربية",
+    socialSection:"Social links",appearanceSection:"Appearance",language:"Language",theme:"Theme",footerEn:"Footer — English",footerAr:"Footer — العربية",reset:"Reset defaults",cancel:"Cancel",saveChanges:"Save changes",
+    contentKicker:"CONTENT MANAGER",contentSection:"Content management",contentLead:"Add, edit, delete, and reorder the cards shown on the site. Changes apply after Save changes.",
+    skillsManager:"Skills",projectsManager:"Projects",trainingManager:"Training",skillEditor:"Skill editor",projectEditor:"Project editor",trainingEditor:"Training editor",
+    nameEn:"Name — English",nameAr:"Name — العربية",descriptionEn:"Description — English",descriptionAr:"Description — العربية",categoryEn:"Category — English",categoryAr:"Category — العربية",
+    tagEn:"Tag — English",tagAr:"Tag — العربية",labelEn:"Status / label — English",labelAr:"Status / label — العربية",techStack:"Tech stack (comma separated)",projectLink:"Project/source URL",iconClass:"Font Awesome icon class",visualStyle:"Visual style",featuredProject:"Featured project",
+    noteEn:"Note — English",noteAr:"Note — العربية",organizationEn:"Organization — English",organizationAr:"Organization — العربية",metaEn:"Category — English",metaAr:"Category — العربية",
+    saveItem:"Save item",clearEditor:"Clear",addNew:"Add new",editItem:"Edit",deleteItem:"Delete",moveUp:"Move up",moveDown:"Move down",noItems:"No items yet.",editingNew:"New item",editingExisting:"Editing item",generic:"Generic",
+    emailInvalid:"Enter a valid email address.",urlInvalid:"Use a full http:// or https:// URL.",confirmDelete:"Delete this item?",contentSaved:"Content changes are ready. Click Save changes to publish them.",noscript:"JavaScript is disabled. The portfolio content is still available, but interactive features are unavailable."
+  },
+  ar:{
+    skip:"اذهب للمحتوى",navAbout:"عنّي",navSkills:"المهارات",navProjects:"المشاريع",navTraining:"التدريب",navContact:"تواصل",
+    viewProjects:"شوف المشاريع",getInTouch:"تواصل معايا",webDevelopment:"تطوير الويب",securityFundamentals:"أساسيات الأمان",scrollExplore:"انزل واستكشف",
+    aboutKicker:"01 / عنّي",aboutCardTitle:"مين أنا",statSkills:"مجالات عملية",statProjects:"مشاريع مميزة",statJourney:"رحلة التعلم الحالية",
+    skillsKicker:"02 / المهارات",skillsTitle:"الأدوات اللي بستخدمها.",skillsLead:"أساس عملي في تطوير الويب والبرمجة والبيانات وأساسيات الأمان.",
+    projectsKicker:"03 / المشاريع",projectsTitle:"أهم الشغل والتطبيقات.",projectsLead:"مشاريع بتوضح اللي بتعلمه وطريقة تعاملي مع البناء والتنفيذ.",
+    featured:"مميز",frontendPractice:"تطبيق فرونت إند",practice:"تطبيق",viewSource:"شوف المصدر",
+    trainingKicker:"04 / التدريب",trainingTitle:"الكورسات والمجتمعات.",trainingLead:"محطات تعليمية مختارة من الجامعة والكورسات التقنية والمجتمعات البرمجية.",
+    certified:"حاصل على شهادة",training:"تدريب",community:"مجتمع",nameRequired:"اكتب اسم العنصر بلغة واحدة على الأقل.",programmingFundamentals:"أساسيات البرمجة",academicTraining:"تدريب أكاديمي",developerCommunity:"مجتمع المطورين",
+    googleText:"مشاركة في مجتمع المطورين وحضور DevFest",contactKicker:"05 / التواصل",sendEmail:"ابعت إيميل",copyEmail:"انسخ الإيميل",backToTop:"الرجوع لفوق",
+    settingsKicker:"إعدادات المستخدم",settingsTitle:"تحكم كامل في الموقع",settingsLead:"عدّل إعدادات الموقع وأضف وعدّل واحذف ورتّب كل مهارة ومشروع وتدريب. التغييرات محفوظة على المتصفح.",
+    identitySection:"الهوية",siteNameEn:"اسم الموقع — English",siteNameAr:"اسم الموقع — العربية",subtitleEn:"الوصف — English",subtitleAr:"الوصف — العربية",logoUrl:"رابط اللوجو",accent:"اللون الأساسي",
+    heroSection:"الواجهة الرئيسية",heroBadgeEn:"الشارة — English",heroBadgeAr:"الشارة — العربية",heroTitleEn:"عنوان الـHero — English",heroTitleAr:"عنوان الـHero — العربية",heroHighlightEn:"النص المميز — English",heroHighlightAr:"النص المميز — العربية",heroDescriptionEn:"وصف الـHero — English",heroDescriptionAr:"وصف الـHero — العربية",
+    aboutSection:"عنّي",aboutTitleEn:"عنوان About — English",aboutTitleAr:"عنوان About — العربية",aboutLeadEn:"المقدمة — English",aboutLeadAr:"المقدمة — العربية",aboutTextEn:"النص — English",aboutTextAr:"النص — العربية",
+    contactSection:"التواصل",contactTitleEn:"عنوان التواصل — English",contactTitleAr:"عنوان التواصل — العربية",contactTextEn:"نص التواصل — English",contactTextAr:"نص التواصل — العربية",email:"الإيميل",locationEn:"المكان — English",locationAr:"المكان — العربية",
+    socialSection:"روابط السوشيال",appearanceSection:"المظهر",language:"اللغة",theme:"الثيم",footerEn:"الفوتر — English",footerAr:"الفوتر — العربية",reset:"إرجاع الافتراضي",cancel:"إلغاء",saveChanges:"حفظ التغييرات",
+    contentKicker:"إدارة المحتوى",contentSection:"إدارة محتوى الموقع",contentLead:"أضف وعدّل واحذف ورتّب الكروت اللي بتظهر في الموقع. التغييرات بتتطبق بعد حفظ التغييرات.",
+    skillsManager:"المهارات",projectsManager:"المشاريع",trainingManager:"التدريب",skillEditor:"محرر المهارات",projectEditor:"محرر المشاريع",trainingEditor:"محرر التدريب",
+    nameEn:"الاسم — English",nameAr:"الاسم — العربية",descriptionEn:"الوصف — English",descriptionAr:"الوصف — العربية",categoryEn:"التصنيف — English",categoryAr:"التصنيف — العربية",
+    tagEn:"الوسم — English",tagAr:"الوسم — العربية",labelEn:"الحالة / الليبل — English",labelAr:"الحالة / الليبل — العربية",techStack:"التقنيات (افصل بينهم بفاصلة)",projectLink:"رابط المشروع/المصدر",iconClass:"كلاس أيقونة Font Awesome",visualStyle:"الشكل البصري",featuredProject:"مشروع مميز",
+    noteEn:"ملاحظة — English",noteAr:"ملاحظة — العربية",organizationEn:"الجهة — English",organizationAr:"الجهة — العربية",metaEn:"التصنيف — English",metaAr:"التصنيف — العربية",
+    saveItem:"حفظ العنصر",clearEditor:"مسح المحرر",addNew:"إضافة جديد",editItem:"تعديل",deleteItem:"حذف",moveUp:"لفوق",moveDown:"لتحت",noItems:"مفيش عناصر لسه.",editingNew:"عنصر جديد",editingExisting:"تعديل عنصر",generic:"عام",
+    emailInvalid:"اكتب إيميل صحيح.",urlInvalid:"استخدم رابط كامل يبدأ بـ http:// أو https://.",confirmDelete:"تحذف العنصر ده؟",contentSaved:"التغييرات جاهزة. اضغط حفظ التغييرات عشان تتطبق.",noscript:"JavaScript متوقف. محتوى البورتفوليو موجود، لكن المزايا التفاعلية غير متاحة."
+  }
+};
+
+function clone(value){return JSON.parse(JSON.stringify(value));}
+function readObject(key,defaults){
+  try{
+    const raw=localStorage.getItem(key);
+    if(!raw)return clone(defaults);
+    const parsed=JSON.parse(raw);
+    return parsed&&typeof parsed==="object"?{...clone(defaults),...parsed}:clone(defaults);
+  }catch{return clone(defaults);}
+}
+function readContent(){
+  try{
+    const raw=localStorage.getItem(CONTENT_KEY);
+    if(!raw)return clone(DEFAULT_CONTENT);
+    const parsed=JSON.parse(raw);
+    return {
+      skills:Array.isArray(parsed.skills)?parsed.skills:clone(DEFAULT_CONTENT.skills),
+      projects:Array.isArray(parsed.projects)?parsed.projects:clone(DEFAULT_CONTENT.projects),
+      training:Array.isArray(parsed.training)?parsed.training:clone(DEFAULT_CONTENT.training)
+    };
+  }catch{return clone(DEFAULT_CONTENT);}
+}
+let settings=readObject(SETTINGS_KEY,DEFAULT_SETTINGS);
+let content=readContent();
+let draftSettings=clone(settings);
+let draftContent=clone(content);
+let editorState={skills:-1,projects:-1,training:-1};
+let activeManager="skills";
+
+function saveSettings(){try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));}catch{}}
+function saveContent(){try{localStorage.setItem(CONTENT_KEY,JSON.stringify(content));}catch{}}
+function t(key){return (TRANSLATIONS[settings.language]||TRANSLATIONS.en)[key]??TRANSLATIONS.en[key]??key;}
+function safeUrl(value,allowed=["http:","https:"]){
+  const raw=String(value||"").trim();if(!raw)return "";
+  if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(raw))return "";
+  try{const url=new URL(raw,window.location.href);return allowed.includes(url.protocol)?raw:"";}catch{return "";}
+}
+function safeEmail(value){
+  const raw=String(value||"").trim();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw)?raw:"";
+}
+function setMenu(open){
+  navMenu.classList.toggle("active",open);
+  navToggle.setAttribute("aria-expanded",String(open));
+  navToggle.setAttribute("aria-label",open?(settings.language==="ar"?"قفل القائمة":"Close navigation menu"):(settings.language==="ar"?"فتح القائمة":"Open navigation menu"));
+  navToggle.innerHTML=open?'<i class="fa-solid fa-xmark" aria-hidden="true"></i>':'<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+}
+function setSocial(id,url){
+  const el=document.getElementById(id);if(!el)return;
+  const valid=safeUrl(url);el.href=valid||"#";el.style.display=valid?"grid":"none";
+}
+function applyLogo(){
+  const brand=document.getElementById("site-brand"),name=document.getElementById("brand-name");
+  const logo=safeUrl(settings.logoUrl);
+  let img=document.getElementById("custom-brand-logo");
+  if(logo){
+    if(!img){img=document.createElement("img");img.id="custom-brand-logo";img.className="custom-brand-logo";img.alt="";brand.insertBefore(img,name);}
+    img.src=logo;img.style.display="inline-block";name.style.display="none";
+  }else{
+    if(img)img.style.display="none";
+    name.style.display="inline";
+  }
+}
+function iconClass(value,fallback){
+  const safe=String(value||"").trim().replace(/[^a-zA-Z0-9 _-]/g,"");
+  return safe||fallback;
+}
+function textFor(item,prefix){
+  const ar=settings.language==="ar";
+  return item[prefix+(ar?"Ar":"En")]||item[prefix+"En"]||item[prefix+"Ar"]||"";
+}
+function createIcon(className){
+  const i=document.createElement("i");
+  i.className=iconClass(className,"fa-solid fa-code");
+  i.setAttribute("aria-hidden","true");
+  return i;
+}
+function renderSkills(){
+  const box=document.getElementById("skills-list");box.textContent="";
+  draftRender(content.skills,"skill").forEach((item)=>{
+    const card=document.createElement("article");card.className="skill-card glass-card reveal is-visible";
+    const iconBox=document.createElement("div");iconBox.className="skill-icon";iconBox.appendChild(createIcon(item.icon,"fa-solid fa-code"));
+    const h3=document.createElement("h3");h3.textContent=textFor(item,"name");
+    const p=document.createElement("p");p.textContent=textFor(item,"desc");
+    const badge=document.createElement("span");badge.className="skill-level";badge.textContent=textFor(item,"cat");
+    card.append(iconBox,h3,p,badge);box.appendChild(card);
+  });
+  document.querySelector('[data-i18n="statSkills"]')?.parentElement?.querySelector("strong")?.replaceChildren(document.createTextNode(String(content.skills.length).padStart(2,"0")));
+}
+function renderProjects(){
+  const box=document.getElementById("projects-list");box.textContent="";
+  draftRender(content.projects,"project").forEach((item,index)=>{
+    const card=document.createElement("article");card.className="project-card glass-card reveal is-visible"+(item.featured?" project-featured":"");
+    const visual=document.createElement("div");visual.className="project-visual "+(VISUAL_STYLES.includes(item.visual)?item.visual:"generic-visual");
+    const number=document.createElement("span");number.className="project-number";number.textContent=String(index+1).padStart(2,"0");
+    const icon=createIcon(item.icon,"fa-solid fa-code");
+    const label=document.createElement("span");label.className="visual-label";label.textContent=textFor(item,"label");
+    visual.append(number,icon,label);
+    const body=document.createElement("div");body.className="project-content";
+    const tag=document.createElement("span");tag.className="project-tag";tag.textContent=textFor(item,"tag");
+    const h3=document.createElement("h3");h3.textContent=textFor(item,"title");
+    const p=document.createElement("p");p.textContent=textFor(item,"desc");
+    const tech=document.createElement("div");tech.className="tech-list";
+    (Array.isArray(item.tech)?item.tech:[]).forEach(value=>{const span=document.createElement("span");span.textContent=value;tech.appendChild(span);});
+    body.append(tag,h3,p,tech);
+    const link=safeUrl(item.link);
+    if(link){
+      const a=document.createElement("a");a.className="text-link";a.href=link;a.target="_blank";a.rel="noopener noreferrer";
+      const s=document.createElement("span");s.textContent=t("viewSource");a.append(s,createIcon("fa-solid fa-arrow-up-right-from-square","fa-solid fa-arrow-up-right-from-square"));body.appendChild(a);
+    }
+    const note=textFor(item,"note");
+    if(note){
+      const noteEl=document.createElement("span");noteEl.className="project-note";noteEl.append(createIcon("fa-solid fa-circle-info","fa-solid fa-circle-info"));
+      const span=document.createElement("span");span.textContent=note;noteEl.appendChild(span);body.appendChild(noteEl);
+    }
+    card.append(visual,body);box.appendChild(card);
+  });
+  const stat=document.querySelector('[data-i18n="statProjects"]')?.parentElement?.querySelector("strong");
+  if(stat)stat.textContent=String(content.projects.length).padStart(2,"0");
+}
+function renderTraining(){
+  const box=document.getElementById("training-list");box.textContent="";
+  draftRender(content.training,"training").forEach((item)=>{
+    const row=document.createElement("article");row.className="timeline-item reveal is-visible";
+    const marker=document.createElement("div");marker.className="timeline-marker";marker.appendChild(createIcon(item.icon,"fa-solid fa-certificate"));
+    const body=document.createElement("div");body.className="timeline-card glass-card";
+    const label=document.createElement("span");label.className="timeline-label";label.textContent=textFor(item,"label");
+    const h3=document.createElement("h3");h3.textContent=textFor(item,"title");
+    const org=document.createElement("p");org.textContent=textFor(item,"org");
+    const meta=document.createElement("span");meta.className="timeline-year";meta.textContent=textFor(item,"meta");
+    body.append(label,h3,org,meta);row.append(marker,body);box.appendChild(row);
+  });
+}
+function draftRender(items){return items;}
+function renderContent(){renderSkills();renderProjects();renderTraining();}
+
+function applyContent(){
+  const ar=settings.language==="ar";
+  document.documentElement.lang=settings.language;
+  document.documentElement.dir=ar?"rtl":"ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n);});
+  const v=ar?{
+    site:settings.siteAr,subtitle:settings.subtitleAr,badge:settings.heroBadgeAr,title:settings.heroTitleAr,highlight:settings.heroHighlightAr,
+    description:settings.heroDescriptionAr,aboutTitle:settings.aboutTitleAr,aboutLead:settings.aboutLeadAr,aboutText:settings.aboutTextAr,
+    contactTitle:settings.contactTitleAr,contactText:settings.contactTextAr,location:settings.locationAr,footer:settings.footerAr
+  }:{
+    site:settings.siteEn,subtitle:settings.subtitleEn,badge:settings.heroBadgeEn,title:settings.heroTitleEn,highlight:settings.heroHighlightEn,
+    description:settings.heroDescriptionEn,aboutTitle:settings.aboutTitleEn,aboutLead:settings.aboutLeadEn,aboutText:settings.aboutTextEn,
+    contactTitle:settings.contactTitleEn,contactText:settings.contactTextEn,location:settings.locationEn,footer:settings.footerEn
+  };
+  document.title=v.site+" | "+(ar?"بورتفوليو مطور":"Developer Portfolio");
+  document.getElementById("meta-description").content=v.description;
+  document.getElementById("og-title").content=document.title;
+  document.getElementById("og-description").content=v.description;
+  document.getElementById("brand-name").textContent=v.site;
+  document.getElementById("site-subtitle").textContent=v.subtitle;
+  document.getElementById("hero-badge").textContent=v.badge;
+  document.getElementById("hero-title").textContent=v.title;
+  document.getElementById("hero-highlight").textContent=v.highlight;
+  document.getElementById("hero-description").textContent=v.description;
+  document.getElementById("hero-location").textContent=v.location;
+  document.getElementById("about-title").textContent=v.aboutTitle;
+  document.getElementById("about-lead").textContent=v.aboutLead;
+  document.getElementById("about-text").textContent=v.aboutText;
+  document.getElementById("contact-title").textContent=v.contactTitle;
+  document.getElementById("contact-description").textContent=v.contactText;
+  document.getElementById("footer-text").textContent=v.footer;
+  document.getElementById("footer-text").setAttribute("title",v.subtitle);
+  languageToggle.textContent=ar?"English":"العربية";
+  languageToggle.setAttribute("aria-label",ar?"Switch to English":"التبديل للعربية");
+  document.getElementById("email-link").href=safeEmail(settings.email)?"mailto:"+settings.email:"#";
+  copyEmailButton.dataset.email=settings.email;
+  ["linkedin","github","whatsapp","facebook","instagram"].forEach(name=>setSocial(name+"-link",settings[name]));
+  currentYear.textContent=String(new Date().getFullYear());
+  applyLogo();
+  updateTheme();
+  renderContent();
+}
+function updateTheme(){
+  root.dataset.theme=settings.theme;
+  root.style.setProperty("--primary",settings.accent);
+  root.style.setProperty("--primary-strong",settings.accent);
+  const light=settings.theme==="light";
+  themeToggle.innerHTML=light?'<i class="fa-solid fa-sun" aria-hidden="true"></i>':'<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+  themeToggle.setAttribute("aria-pressed",String(light));
+  themeToggle.setAttribute("aria-label",settings.language==="ar"?(light?"التبديل للوضع الداكن":"التبديل للوضع الفاتح"):(light?"Switch to dark theme":"Switch to light theme"));
+}
+function fillFields(map){
+  Object.entries(map).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.value=value??"";});
+}
+function populateSettingsForm(){
+  fillFields({
+    "setting-site-en":draftSettings.siteEn,"setting-site-ar":draftSettings.siteAr,"setting-subtitle-en":draftSettings.subtitleEn,"setting-subtitle-ar":draftSettings.subtitleAr,
+    "setting-logo":draftSettings.logoUrl,"setting-accent":draftSettings.accent,
+    "setting-hero-badge-en":draftSettings.heroBadgeEn,"setting-hero-badge-ar":draftSettings.heroBadgeAr,"setting-hero-title-en":draftSettings.heroTitleEn,"setting-hero-title-ar":draftSettings.heroTitleAr,
+    "setting-hero-highlight-en":draftSettings.heroHighlightEn,"setting-hero-highlight-ar":draftSettings.heroHighlightAr,"setting-hero-description-en":draftSettings.heroDescriptionEn,"setting-hero-description-ar":draftSettings.heroDescriptionAr,
+    "setting-about-title-en":draftSettings.aboutTitleEn,"setting-about-title-ar":draftSettings.aboutTitleAr,"setting-about-lead-en":draftSettings.aboutLeadEn,"setting-about-lead-ar":draftSettings.aboutLeadAr,
+    "setting-about-text-en":draftSettings.aboutTextEn,"setting-about-text-ar":draftSettings.aboutTextAr,"setting-contact-title-en":draftSettings.contactTitleEn,"setting-contact-title-ar":draftSettings.contactTitleAr,
+    "setting-contact-text-en":draftSettings.contactTextEn,"setting-contact-text-ar":draftSettings.contactTextAr,"setting-email":draftSettings.email,"setting-location-en":draftSettings.locationEn,"setting-location-ar":draftSettings.locationAr,
+    "setting-linkedin":draftSettings.linkedin,"setting-github":draftSettings.github,"setting-whatsapp":draftSettings.whatsapp,"setting-facebook":draftSettings.facebook,"setting-instagram":draftSettings.instagram,
+    "setting-language":draftSettings.language,"setting-theme":draftSettings.theme,"setting-footer-en":draftSettings.footerEn,"setting-footer-ar":draftSettings.footerAr
+  });
+}
+function readSettingsForm(){
+  const get=id=>document.getElementById(id)?.value.trim()??"";
+  const email=get("setting-email");
+  if(email&&!safeEmail(email)){showManagerFeedback(t("emailInvalid"),false);return null;}
+  draftSettings={
+    ...draftSettings,
+    siteEn:get("setting-site-en")||DEFAULT_SETTINGS.siteEn,siteAr:get("setting-site-ar")||DEFAULT_SETTINGS.siteAr,
+    subtitleEn:get("setting-subtitle-en")||DEFAULT_SETTINGS.subtitleEn,subtitleAr:get("setting-subtitle-ar")||DEFAULT_SETTINGS.subtitleAr,
+    logoUrl:safeUrl(get("setting-logo")),accent:/^#[0-9a-f]{6}$/i.test(get("setting-accent"))?get("setting-accent"):DEFAULT_SETTINGS.accent,
+    heroBadgeEn:get("setting-hero-badge-en")||DEFAULT_SETTINGS.heroBadgeEn,heroBadgeAr:get("setting-hero-badge-ar")||DEFAULT_SETTINGS.heroBadgeAr,
+    heroTitleEn:get("setting-hero-title-en")||DEFAULT_SETTINGS.heroTitleEn,heroTitleAr:get("setting-hero-title-ar")||DEFAULT_SETTINGS.heroTitleAr,
+    heroHighlightEn:get("setting-hero-highlight-en")||DEFAULT_SETTINGS.heroHighlightEn,heroHighlightAr:get("setting-hero-highlight-ar")||DEFAULT_SETTINGS.heroHighlightAr,
+    heroDescriptionEn:get("setting-hero-description-en")||DEFAULT_SETTINGS.heroDescriptionEn,heroDescriptionAr:get("setting-hero-description-ar")||DEFAULT_SETTINGS.heroDescriptionAr,
+    aboutTitleEn:get("setting-about-title-en")||DEFAULT_SETTINGS.aboutTitleEn,aboutTitleAr:get("setting-about-title-ar")||DEFAULT_SETTINGS.aboutTitleAr,
+    aboutLeadEn:get("setting-about-lead-en")||DEFAULT_SETTINGS.aboutLeadEn,aboutLeadAr:get("setting-about-lead-ar")||DEFAULT_SETTINGS.aboutLeadAr,
+    aboutTextEn:get("setting-about-text-en")||DEFAULT_SETTINGS.aboutTextEn,aboutTextAr:get("setting-about-text-ar")||DEFAULT_SETTINGS.aboutTextAr,
+    contactTitleEn:get("setting-contact-title-en")||DEFAULT_SETTINGS.contactTitleEn,contactTitleAr:get("setting-contact-title-ar")||DEFAULT_SETTINGS.contactTitleAr,
+    contactTextEn:get("setting-contact-text-en")||DEFAULT_SETTINGS.contactTextEn,contactTextAr:get("setting-contact-text-ar")||DEFAULT_SETTINGS.contactTextAr,
+    email:email||DEFAULT_SETTINGS.email,locationEn:get("setting-location-en")||DEFAULT_SETTINGS.locationEn,locationAr:get("setting-location-ar")||DEFAULT_SETTINGS.locationAr,
+    linkedin:safeUrl(get("setting-linkedin")),github:safeUrl(get("setting-github")),whatsapp:safeUrl(get("setting-whatsapp")),facebook:safeUrl(get("setting-facebook")),instagram:safeUrl(get("setting-instagram")),
+    language:document.getElementById("setting-language").value==="ar"?"ar":"en",theme:document.getElementById("setting-theme").value==="light"?"light":"dark",
+    footerEn:get("setting-footer-en")||DEFAULT_SETTINGS.footerEn,footerAr:get("setting-footer-ar")||DEFAULT_SETTINGS.footerAr
+  };
+  return draftSettings;
+}
+function openSettings(){
+  draftSettings=clone(settings);draftContent=clone(content);editorState={skills:-1,projects:-1,training:-1};
+  populateSettingsForm();renderManagerLists();clearAllEditors();setManagerTab(activeManager);
+  settingsModal.classList.remove("hidden");document.body.classList.add("settings-open");
+}
+function closeSettings(){settingsModal.classList.add("hidden");document.body.classList.remove("settings-open");}
+function showManagerFeedback(message,success=true){
+  const el=document.getElementById("manager-feedback");if(!el)return;
+  el.textContent=message;el.classList.toggle("success",success);clearTimeout(showManagerFeedback.timer);
+  showManagerFeedback.timer=setTimeout(()=>{el.textContent="";el.classList.remove("success");},2600);
+}
+function setManagerTab(type){
+  activeManager=type;
+  document.querySelectorAll(".manager-tab").forEach(btn=>{const active=btn.dataset.managerTab===type;btn.classList.toggle("active",active);btn.setAttribute("aria-selected",String(active));});
+  document.querySelectorAll("[data-manager-panel]").forEach(panel=>panel.classList.toggle("active",panel.dataset.managerPanel===type));
+  renderManagerList(type);fillEditor(type,editorState[type]);
+}
+function renderManagerLists(){
+  ["skills","projects","training"].forEach(renderManagerList);
+}
+function renderManagerList(type){
+  const box=document.getElementById(type+"-manager-list");if(!box)return;box.textContent="";
+  const items=draftContent[type]||[];
+  if(!items.length){const empty=document.createElement("div");empty.className="manager-empty";empty.textContent=t("noItems");box.appendChild(empty);}
+  items.forEach((item,index)=>{
+    const row=document.createElement("div");row.className="manager-row";
+    const info=document.createElement("div");info.className="manager-row-info";
+    const title=document.createElement("strong");title.textContent=textFor(item,type==="skills"?"name":type==="projects"?"title":"title");info.appendChild(title);
+    const sub=document.createElement("span");sub.textContent=type==="skills"?textFor(item,"cat"):type==="projects"?textFor(item,"tag"):textFor(item,"org");info.appendChild(sub);
+    const actions=document.createElement("div");actions.className="manager-row-actions";
+    [["up","↑",index===0],["down","↓",index===items.length-1]].forEach(([action,label,disabled])=>{const b=document.createElement("button");b.type="button";b.className="mini-button";b.dataset.managerAction=action;b.dataset.managerType=type;b.dataset.managerIndex=String(index);b.disabled=disabled;b.textContent=label;b.title=t(action==="up"?"moveUp":"moveDown");actions.appendChild(b);});
+    const edit=document.createElement("button");edit.type="button";edit.className="mini-button";edit.dataset.managerAction="edit";edit.dataset.managerType=type;edit.dataset.managerIndex=String(index);edit.textContent="✎";edit.title=t("editItem");actions.appendChild(edit);
+    const del=document.createElement("button");del.type="button";del.className="mini-button danger";del.dataset.managerAction="delete";del.dataset.managerType=type;del.dataset.managerIndex=String(index);del.textContent="×";del.title=t("deleteItem");actions.appendChild(del);
+    row.append(info,actions);box.appendChild(row);
+  });
+  const add=document.createElement("button");add.type="button";add.className="btn btn-secondary manager-add";add.dataset.editorClear=type;add.innerHTML='<i class="fa-solid fa-plus" aria-hidden="true"></i> <span>'+t("addNew")+"</span>";box.appendChild(add);
+}
+function clearEditor(type){
+  editorState[type]=-1;
+  const selectors={
+    skills:["skill-name-en","skill-name-ar","skill-desc-en","skill-desc-ar","skill-cat-en","skill-cat-ar","skill-icon"],
+    projects:["project-title-en","project-title-ar","project-desc-en","project-desc-ar","project-tag-en","project-tag-ar","project-label-en","project-label-ar","project-tech","project-link","project-icon","project-note-en","project-note-ar"],
+    training:["training-title-en","training-title-ar","training-org-en","training-org-ar","training-label-en","training-label-ar","training-meta-en","training-meta-ar","training-icon"]
+  };
+  selectors[type].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
+  if(type==="projects"){document.getElementById("project-visual").value="generic-visual";document.getElementById("project-featured").checked=false;}
+  const mode=document.getElementById(({skills:"skill",projects:"project",training:"training"})[type]+"-editor-mode");
+  if(mode)mode.textContent=t("editingNew");
+}
+function fillEditor(type,index){
+  if(index<0){clearEditor(type);return;}
+  const item=(draftContent[type]||[])[index];if(!item)return clearEditor(type);
+  editorState[type]=index;
+  const values=type==="skills"?{
+    "skill-name-en":item.nameEn,"skill-name-ar":item.nameAr,"skill-desc-en":item.descEn,"skill-desc-ar":item.descAr,"skill-cat-en":item.catEn,"skill-cat-ar":item.catAr,"skill-icon":item.icon
+  }:type==="projects"?{
+    "project-title-en":item.titleEn,"project-title-ar":item.titleAr,"project-desc-en":item.descEn,"project-desc-ar":item.descAr,"project-tag-en":item.tagEn,"project-tag-ar":item.tagAr,"project-label-en":item.labelEn,"project-label-ar":item.labelAr,
+    "project-tech":(item.tech||[]).join(", "),"project-link":item.link||"","project-icon":item.icon,"project-visual":item.visual||"generic-visual","project-featured":item.featured?"__CHECKED__":0,
+    "project-note-en":item.noteEn||"","project-note-ar":item.noteAr||""
+  }:{"training-title-en":item.titleEn,"training-title-ar":item.titleAr,"training-org-en":item.orgEn,"training-org-ar":item.orgAr,"training-label-en":item.labelEn,"training-label-ar":item.labelAr,"training-meta-en":item.metaEn,"training-meta-ar":item.metaAr,"training-icon":item.icon};
+  Object.entries(values).forEach(([id,value])=>{const el=document.getElementById(id);if(!el)return;if(value==="__CHECKED__")el.checked=true;else el.value=value??"";});
+  const mode=document.getElementById(({skills:"skill",projects:"project",training:"training"})[type]+"-editor-mode");
+  if(mode)mode.textContent=t("editingExisting");
+}
+function readEditor(type){
+  const get=id=>document.getElementById(id)?.value.trim()??"";
+  if(type==="skills"){
+    const en=get("skill-name-en"),ar=get("skill-name-ar");if(!en&&!ar){showManagerFeedback(t("nameRequired"),false);return null;}
+    return {nameEn:en||ar,nameAr:ar||en,descEn:get("skill-desc-en"),descAr:get("skill-desc-ar")||get("skill-desc-en"),catEn:get("skill-cat-en"),catAr:get("skill-cat-ar")||get("skill-cat-en"),icon:iconClass(get("skill-icon"),"fa-solid fa-code")};
+  }
+  if(type==="projects"){
+    const en=get("project-title-en"),ar=get("project-title-ar");if(!en&&!ar){showManagerFeedback(t("nameRequired"),false);return null;}
+    const rawLink=get("project-link"),link=rawLink?safeUrl(rawLink):"";
+    if(rawLink&&!link){showManagerFeedback(t("urlInvalid"),false);return null;}
+    return {titleEn:en||ar,titleAr:ar||en,descEn:get("project-desc-en"),descAr:get("project-desc-ar")||get("project-desc-en"),tagEn:get("project-tag-en"),tagAr:get("project-tag-ar")||get("project-tag-en"),labelEn:get("project-label-en"),labelAr:get("project-label-ar")||get("project-label-en"),tech:get("project-tech").split(",").map(v=>v.trim()).filter(Boolean).slice(0,12),link,icon:iconClass(get("project-icon"),"fa-solid fa-code"),visual:VISUAL_STYLES.includes(document.getElementById("project-visual").value)?document.getElementById("project-visual").value:"generic-visual",featured:document.getElementById("project-featured").checked,noteEn:get("project-note-en"),noteAr:get("project-note-ar")||get("project-note-en")};
+  }
+  const en=get("training-title-en"),ar=get("training-title-ar");if(!en&&!ar){showManagerFeedback(t("nameRequired"),false);return null;}
+  return {titleEn:en||ar,titleAr:ar||en,orgEn:get("training-org-en"),orgAr:get("training-org-ar")||get("training-org-en"),labelEn:get("training-label-en"),labelAr:get("training-label-ar")||get("training-label-en"),metaEn:get("training-meta-en"),metaAr:get("training-meta-ar")||get("training-meta-en"),icon:iconClass(get("training-icon"),"fa-solid fa-certificate")};
+}
+function persistEditor(type){
+  const value=readEditor(type);if(!value)return;
+  const index=editorState[type];const list=draftContent[type];
+  if(index>=0&&index<list.length){list[index]={...list[index],...value};}
+  else{list.push({id:type+"-"+Date.now(),...value});}
+  renderManagerList(type);clearEditor(type);showManagerFeedback(t("contentSaved"),true);
+}
+function managerAction(event){
+  const button=event.target.closest("[data-manager-action]");if(!button)return;
+  const type=button.dataset.managerType,index=Number(button.dataset.managerIndex),list=draftContent[type];if(!list?.[index])return;
+  const action=button.dataset.managerAction;
+  if(action==="edit"){fillEditor(type,index);return;}
+  if(action==="delete"){if(!window.confirm(t("confirmDelete")))return;list.splice(index,1);clearEditor(type);renderManagerList(type);return;}
+  if(action==="up"&&index>0)[list[index-1],list[index]]=[list[index],list[index-1]];
+  if(action==="down"&&index<list.length-1)[list[index+1],list[index]]=[list[index],list[index+1]];
+  renderManagerList(type);if(editorState[type]===index)clearEditor(type);
+}
+function saveAll(){
+  const nextSettings=readSettingsForm();if(!nextSettings)return;
+  settings=nextSettings;content=clone(draftContent);saveSettings();saveContent();applyContent();closeSettings();
+}
+function resetAll(){
+  draftSettings=clone(DEFAULT_SETTINGS);draftContent=clone(DEFAULT_CONTENT);editorState={skills:-1,projects:-1,training:-1};
+  populateSettingsForm();renderManagerLists();clearAllEditors();showManagerFeedback(t("contentSaved"),true);
+}
+function clearAllEditors(){["skills","projects","training"].forEach(clearEditor);}
+function setScrollUI(){
+  const top=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;
+  progressBar.style.width=Math.min(100,Math.max(0,max>0?top/max*100:0))+"%";
+  navbar.classList.toggle("scrolled",top>20);
+  backToTop.classList.toggle("visible",top>520);
+}
+async function copyText(value){
+  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);return;}
+  const box=document.createElement("textarea");box.value=value;box.setAttribute("readonly","");box.style.position="fixed";box.style.opacity="0";document.body.appendChild(box);box.select();
+  const ok=document.execCommand("copy");box.remove();if(!ok)throw new Error("copy failed");
+}
+function showCopy(message,success){
+  copyFeedback.textContent=message;copyFeedback.classList.toggle("success",success);clearTimeout(showCopy.timer);
+  showCopy.timer=setTimeout(()=>{copyFeedback.textContent="";copyFeedback.classList.remove("success");},2600);
+}
+navToggle.addEventListener("click",()=>setMenu(!navMenu.classList.contains("active")));
+navLinks.forEach(link=>link.addEventListener("click",()=>setMenu(false)));
+document.addEventListener("click",event=>{
+  if(navMenu.classList.contains("active")&&!navMenu.contains(event.target)&&!navToggle.contains(event.target))setMenu(false);
+  const clear=event.target.closest("[data-editor-clear]");if(clear&&clear.dataset.editorClear){clearEditor(clear.dataset.editorClear);if(clear.classList.contains("manager-add"))document.getElementById(clear.dataset.editorClear+"-editor")?.scrollIntoView({block:"nearest"});}
+});
+document.addEventListener("keydown",event=>{if(event.key==="Escape"){setMenu(false);closeSettings();}});
+settingsToggle.addEventListener("click",openSettings);
+document.querySelectorAll("[data-close-settings]").forEach(el=>el.addEventListener("click",closeSettings));
+languageToggle.addEventListener("click",()=>{
+  settings.language=settings.language==="en"?"ar":"en";saveSettings();applyContent();
+  if(!settingsModal.classList.contains("hidden")){populateSettingsForm();renderManagerLists();setManagerTab(activeManager);}
+});
+themeToggle.addEventListener("click",()=>{settings.theme=settings.theme==="dark"?"light":"dark";saveSettings();updateTheme();});
+document.getElementById("save-settings").addEventListener("click",saveAll);
+document.getElementById("reset-settings").addEventListener("click",resetAll);
+document.querySelectorAll(".manager-tab").forEach(btn=>btn.addEventListener("click",()=>setManagerTab(btn.dataset.managerTab)));
+document.getElementById("skill-editor").addEventListener("submit",event=>{event.preventDefault();persistEditor("skills");});
+document.getElementById("project-editor").addEventListener("submit",event=>{event.preventDefault();persistEditor("projects");});
+document.getElementById("training-editor").addEventListener("submit",event=>{event.preventDefault();persistEditor("training");});
+["skills","projects","training"].forEach(type=>document.getElementById(type+"-manager-list").addEventListener("click",managerAction));
+copyEmailButton.addEventListener("click",async()=>{
+  if(!settings.email)return;
+  try{await copyText(settings.email);showCopy(settings.language==="ar"?"تم نسخ الإيميل":"Email copied to clipboard.",true);}
+  catch{showCopy(settings.language==="ar"?"فشل النسخ، استخدم زر الإيميل":"Copy failed. Use the email button instead.",false);}
+});
+backToTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:prefersReducedMotion.matches?"auto":"smooth"}));
+window.addEventListener("scroll",setScrollUI,{passive:true});window.addEventListener("resize",setScrollUI);
+function setupReveal(){
+  if(prefersReducedMotion.matches||!("IntersectionObserver" in window)){document.querySelectorAll(".reveal").forEach(el=>el.classList.add("is-visible"));return;}
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}}),{threshold:.12});
+  document.querySelectorAll(".reveal:not(.is-visible)").forEach(el=>observer.observe(el));
+}
+function setupActiveSection(){
+  if(!("IntersectionObserver" in window))return;
+  const map=new Map(navLinks.map(link=>[link.getAttribute("href").slice(1),link]));
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    navLinks.forEach(link=>{link.classList.remove("active");link.removeAttribute("aria-current");});
+    const active=map.get(entry.target.id);
+    if(active){active.classList.add("active");active.setAttribute("aria-current","page");}
+  }),{rootMargin:"-22% 0px -62% 0px",threshold:0});
+  sections.forEach(section=>observer.observe(section));
+}
+currentYear.textContent=String(new Date().getFullYear());
+setMenu(false);applyContent();populateSettingsForm();clearAllEditors();setupReveal();setupActiveSection();setScrollUI();
+</script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="nav-logo-wrap" href="#hero" id="site-brand" aria-label="Pavley Mousa home">
+        <span class="nav-logo"><span>&lt;</span><span id="brand-name">Pavley Mousa</span><span>/&gt;</span></span>
+        <small id="site-subtitle">Developer Portfolio</small>
+      </a>
+
+      <div class="nav-actions">
+        <button class="icon-button language-button" id="language-toggle" type="button">العربية</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button class="icon-button" id="settings-toggle" type="button" aria-label="Open settings">
+          <i class="fa-solid fa-gear" aria-hidden="true"></i>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a class="nav-link" href="#about" data-i18n="navAbout">About</a></li>
+        <li><a class="nav-link" href="#skills" data-i18n="navSkills">Skills</a></li>
+        <li><a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a></li>
+        <li><a class="nav-link" href="#training" data-i18n="navTraining">Training</a></li>
+        <li><a class="nav-link nav-contact" href="#contact" data-i18n="navContact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <header class="hero section-shell" id="hero" data-observe-section>
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="hero-badge">Computer Science &amp; AI Student</span>
+          </span>
+
+          <h1>
+            <span id="hero-title">I build useful software with</span>
+            <span id="hero-highlight">code, curiosity, and consistency.</span>
+          </h1>
+
+          <p class="hero-copy" id="hero-description">
+            I’m Pavley Mousa, a Computer Science and Artificial Intelligence student focused on frontend development, C++, software engineering, and web security fundamentals.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">
+              <span data-i18n="viewProjects">View projects</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-secondary" href="#contact" data-i18n="getInTouch">Get in touch</a>
+          </div>
+
+          <div class="hero-meta" aria-label="Quick facts">
+            <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span id="hero-location">Egypt</span></span>
+            <span><i class="fa-solid fa-code" aria-hidden="true"></i> <span data-i18n="webDevelopment">Web development</span></span>
+            <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> <span data-i18n="securityFundamentals">Security fundamentals</span></span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" aria-label="Developer profile card">
+          <div class="terminal-top" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="terminal-body" aria-label="Code-style profile">
+            <p><span class="code-purple">const</span> developer = {</p>
+            <p class="code-indent"><span class="code-key">name:</span> <span class="code-string">"Pavley Mousa"</span>,</p>
+            <p class="code-indent"><span class="code-key">focus:</span> <span class="code-string">"Software + Web"</span>,</p>
+            <p class="code-indent"><span class="code-key">stack:</span> [<span class="code-string">"JS"</span>, <span class="code-string">"C++"</span>, <span class="code-string">"SQL"</span>],</p>
+            <p class="code-indent"><span class="code-key">status:</span> <span class="code-string">"learning &amp; building"</span></p>
+            <p>};</p>
+            <div class="terminal-line"><span class="terminal-cursor" aria-hidden="true"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="Scroll to about">
+        <span data-i18n="scrollExplore">Scroll to explore</span>
+        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </header>
+
+    <section class="section section-shell" id="about" data-observe-section>
+      <div class="section-heading reveal">
+        <span class="section-kicker" data-i18n="aboutKicker">01 / ABOUT</span>
+        <h2 id="about-title">Learning by building real things.</h2>
+        <p id="about-lead">I use projects to turn programming concepts into working interfaces, tools, and experiments.</p>
+      </div>
+
+      <div class="about-layout">
+        <article class="about-card glass-card reveal">
+          <div class="card-icon"><i class="fa-solid fa-user-astronaut" aria-hidden="true"></i></div>
+          <h3 data-i18n="aboutCardTitle">Who I am</h3>
+          <p id="about-text">I study Computer Science and Artificial Intelligence and build projects while I learn. My priorities are readable code, responsive design, practical problem solving, and steady improvement.</p>
+        </article>
+
+        <div class="stats-grid" aria-label="Portfolio highlights">
+          <article class="stat-card glass-card reveal"><strong>06</strong><span data-i18n="statSkills">Practical skill areas</span></article>
+          <article class="stat-card glass-card reveal"><strong>04</strong><span data-i18n="statProjects">Featured projects</span></article>
+          <article class="stat-card glass-card reveal"><strong id="stat-year">2026</strong><span data-i18n="statJourney">Current learning journey</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-shell" id="skills" data-observe-section>
+      <div class="section-heading reveal">
+        <span class="section-kicker" data-i18n="skillsKicker">02 / SKILLS</span>
+        <h2 data-i18n="skillsTitle">My current toolkit.</h2>
+        <p data-i18n="skillsLead">A practical foundation across web development, programming, data, and security.</p>
+      </div>
+
+      <div class="skills-grid" id="skills-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section section-shell" id="projects" data-observe-section>
+      <div class="section-heading reveal">
+        <span class="section-kicker" data-i18n="projectsKicker">03 / PROJECTS</span>
+        <h2 data-i18n="projectsTitle">Selected work and practice.</h2>
+        <p data-i18n="projectsLead">Projects that reflect what I’m learning and the way I approach building.</p>
+      </div>
+
+      <div class="projects-grid" id="projects-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section section-shell" id="training" data-observe-section>
+      <div class="section-heading reveal">
+        <span class="section-kicker" data-i18n="trainingKicker">04 / TRAINING</span>
+        <h2 data-i18n="trainingTitle">Courses and communities.</h2>
+        <p data-i18n="trainingLead">Selected learning milestones from university, technical courses, and developer communities.</p>
+      </div>
+
+      <div class="timeline" id="training-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section section-shell contact-section" id="contact" data-observe-section>
+      <div class="contact-card glass-card reveal">
+        <span class="section-kicker" data-i18n="contactKicker">05 / CONTACT</span>
+        <h2 id="contact-title">Let’s build something useful.</h2>
+        <p id="contact-description">Open to software development opportunities, freelance projects, and technical conversations.</p>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" id="email-link" href="mailto:bavlymosa29@gmail.com"><span data-i18n="sendEmail">Send an email</span><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a>
+          <button class="btn btn-secondary copy-email" id="copy-email" type="button" data-email="bavlymosa29@gmail.com"><span data-i18n="copyEmail">Copy email</span><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+        </div>
+
+        <div class="social-links" aria-label="Social profiles">
+          <a id="linkedin-link" href="https://www.linkedin.com/in/pavley-mousa-715533341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          <a id="github-link" href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a id="whatsapp-link" href="https://wa.me/201556126686" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a id="facebook-link" href="https://www.facebook.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+          <a id="instagram-link" href="https://www.instagram.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+
+        <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <div class="settings-overlay hidden" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="settings-backdrop" data-close-settings></div>
+    <section class="settings-card">
+      <div class="settings-header">
+        <div>
+          <span class="section-kicker" data-i18n="settingsKicker">USER SETTINGS</span>
+          <h2 id="settings-title" data-i18n="settingsTitle">Full Site Control</h2>
+          <p data-i18n="settingsLead">Edit the portfolio identity and visible content. Changes are saved in this browser.</p>
+        </div>
+        <button class="icon-button" type="button" data-close-settings aria-label="Close settings"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="settings-grid">
+        <section class="settings-section">
+          <h3 data-i18n="identitySection">Identity</h3>
+          <label><span data-i18n="siteNameEn">Site name — English</span><input id="setting-site-en" type="text" maxlength="70"></label>
+          <label><span data-i18n="siteNameAr">Site name — العربية</span><input id="setting-site-ar" type="text" maxlength="70" dir="rtl"></label>
+          <label><span data-i18n="subtitleEn">Subtitle — English</span><input id="setting-subtitle-en" type="text" maxlength="140"></label>
+          <label><span data-i18n="subtitleAr">Subtitle — العربية</span><input id="setting-subtitle-ar" type="text" maxlength="140" dir="rtl"></label>
+          <label><span data-i18n="logoUrl">Logo URL</span><input id="setting-logo" type="url" placeholder="https://..."></label>
+          <label><span data-i18n="accent">Accent color</span><input id="setting-accent" type="color"></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="heroSection">Hero</h3>
+          <label><span data-i18n="heroBadgeEn">Badge — English</span><input id="setting-hero-badge-en" type="text"></label>
+          <label><span data-i18n="heroBadgeAr">Badge — العربية</span><input id="setting-hero-badge-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="heroTitleEn">Hero title — English</span><input id="setting-hero-title-en" type="text"></label>
+          <label><span data-i18n="heroTitleAr">Hero title — العربية</span><input id="setting-hero-title-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="heroHighlightEn">Highlight — English</span><input id="setting-hero-highlight-en" type="text"></label>
+          <label><span data-i18n="heroHighlightAr">Highlight — العربية</span><input id="setting-hero-highlight-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="heroDescriptionEn">Hero description — English</span><textarea id="setting-hero-description-en" rows="3"></textarea></label>
+          <label><span data-i18n="heroDescriptionAr">Hero description — العربية</span><textarea id="setting-hero-description-ar" rows="3" dir="rtl"></textarea></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="aboutSection">About</h3>
+          <label><span data-i18n="aboutTitleEn">About title — English</span><input id="setting-about-title-en" type="text"></label>
+          <label><span data-i18n="aboutTitleAr">About title — العربية</span><input id="setting-about-title-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="aboutLeadEn">About lead — English</span><textarea id="setting-about-lead-en" rows="3"></textarea></label>
+          <label><span data-i18n="aboutLeadAr">About lead — العربية</span><textarea id="setting-about-lead-ar" rows="3" dir="rtl"></textarea></label>
+          <label><span data-i18n="aboutTextEn">About text — English</span><textarea id="setting-about-text-en" rows="4"></textarea></label>
+          <label><span data-i18n="aboutTextAr">About text — العربية</span><textarea id="setting-about-text-ar" rows="4" dir="rtl"></textarea></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="contactSection">Contact</h3>
+          <label><span data-i18n="contactTitleEn">Contact title — English</span><input id="setting-contact-title-en" type="text"></label>
+          <label><span data-i18n="contactTitleAr">Contact title — العربية</span><input id="setting-contact-title-ar" type="text" dir="rtl"></label>
+          <label><span data-i18n="contactTextEn">Contact text — English</span><textarea id="setting-contact-text-en" rows="3"></textarea></label>
+          <label><span data-i18n="contactTextAr">Contact text — العربية</span><textarea id="setting-contact-text-ar" rows="3" dir="rtl"></textarea></label>
+          <label><span data-i18n="email">Email</span><input id="setting-email" type="email"></label>
+          <label><span data-i18n="locationEn">Location — English</span><input id="setting-location-en" type="text"></label>
+          <label><span data-i18n="locationAr">Location — العربية</span><input id="setting-location-ar" type="text" dir="rtl"></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="socialSection">Social links</h3>
+          <label><span>LinkedIn</span><input id="setting-linkedin" type="url"></label>
+          <label><span>GitHub</span><input id="setting-github" type="url"></label>
+          <label><span>WhatsApp</span><input id="setting-whatsapp" type="url"></label>
+          <label><span>Facebook</span><input id="setting-facebook" type="url"></label>
+          <label><span>Instagram</span><input id="setting-instagram" type="url"></label>
+        </section>
+
+        <section class="settings-section">
+          <h3 data-i18n="appearanceSection">Appearance</h3>
+          <label><span data-i18n="language">Language</span><select id="setting-language"><option value="en">English</option><option value="ar">العربية</option></select></label>
+          <label><span data-i18n="theme">Theme</span><select id="setting-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+          <label><span data-i18n="footerEn">Footer — English</span><input id="setting-footer-en" type="text"></label>
+          <label><span data-i18n="footerAr">Footer — العربية</span><input id="setting-footer-ar" type="text" dir="rtl"></label>
+        </section>
+      </div>
+
+<div class="content-manager">
+        <div class="content-manager-head">
+          <div>
+            <span class="section-kicker" data-i18n="contentKicker">CONTENT MANAGER</span>
+            <h3 data-i18n="contentSection">Content management</h3>
+            <p data-i18n="contentLead">Add, edit, delete, and reorder the cards shown on the site. Changes apply after Save changes.</p>
+          </div>
+        </div>
+
+        <p id="manager-feedback" role="status" aria-live="polite"></p>
+        <div class="manager-tabs" role="tablist" aria-label="Content manager">
+          <button class="manager-tab active" type="button" data-manager-tab="skills" data-i18n="skillsManager">Skills</button>
+          <button class="manager-tab" type="button" data-manager-tab="projects" data-i18n="projectsManager">Projects</button>
+          <button class="manager-tab" type="button" data-manager-tab="training" data-i18n="trainingManager">Training</button>
+        </div>
+
+        <div class="manager-panel active" id="manager-skills" data-manager-panel="skills">
+          <div class="manager-list" id="skills-manager-list"></div>
+          <form class="manager-editor" id="skill-editor" data-editor="skills">
+            <div class="editor-heading"><strong data-i18n="skillEditor">Skill editor</strong><span class="editor-mode" id="skill-editor-mode"></span></div>
+            <div class="manager-fields">
+              <label><span data-i18n="nameEn">Name — English</span><input id="skill-name-en" type="text" maxlength="60"></label>
+              <label><span data-i18n="nameAr">Name — العربية</span><input id="skill-name-ar" type="text" maxlength="60" dir="rtl"></label>
+              <label class="field-wide"><span data-i18n="descriptionEn">Description — English</span><textarea id="skill-desc-en" rows="3"></textarea></label>
+              <label class="field-wide"><span data-i18n="descriptionAr">Description — العربية</span><textarea id="skill-desc-ar" rows="3" dir="rtl"></textarea></label>
+              <label><span data-i18n="categoryEn">Category — English</span><input id="skill-cat-en" type="text"></label>
+              <label><span data-i18n="categoryAr">Category — العربية</span><input id="skill-cat-ar" type="text" dir="rtl"></label>
+              <label class="field-wide"><span data-i18n="iconClass">Font Awesome icon class</span><input id="skill-icon" type="text" placeholder="fa-brands fa-js"></label>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-secondary" type="button" data-editor-clear="skills" data-i18n="clearEditor">Clear</button>
+              <button class="btn btn-primary" type="submit" data-i18n="saveItem">Save item</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="manager-panel" id="manager-projects" data-manager-panel="projects">
+          <div class="manager-list" id="projects-manager-list"></div>
+          <form class="manager-editor" id="project-editor" data-editor="projects">
+            <div class="editor-heading"><strong data-i18n="projectEditor">Project editor</strong><span class="editor-mode" id="project-editor-mode"></span></div>
+            <div class="manager-fields">
+              <label><span data-i18n="nameEn">Name — English</span><input id="project-title-en" type="text" maxlength="90"></label>
+              <label><span data-i18n="nameAr">Name — العربية</span><input id="project-title-ar" type="text" maxlength="90" dir="rtl"></label>
+              <label class="field-wide"><span data-i18n="descriptionEn">Description — English</span><textarea id="project-desc-en" rows="3"></textarea></label>
+              <label class="field-wide"><span data-i18n="descriptionAr">Description — العربية</span><textarea id="project-desc-ar" rows="3" dir="rtl"></textarea></label>
+              <label><span data-i18n="tagEn">Tag — English</span><input id="project-tag-en" type="text"></label>
+              <label><span data-i18n="tagAr">Tag — العربية</span><input id="project-tag-ar" type="text" dir="rtl"></label>
+              <label><span data-i18n="labelEn">Visual label — English</span><input id="project-label-en" type="text"></label>
+              <label><span data-i18n="labelAr">Visual label — العربية</span><input id="project-label-ar" type="text" dir="rtl"></label>
+              <label class="field-wide"><span data-i18n="techStack">Tech stack (comma separated)</span><input id="project-tech" type="text" placeholder="HTML5, CSS, JavaScript"></label>
+              <label class="field-wide"><span data-i18n="projectLink">Project/source URL</span><input id="project-link" type="url" placeholder="https://..."></label>
+              <label><span data-i18n="iconClass">Font Awesome icon class</span><input id="project-icon" type="text" placeholder="fa-solid fa-code"></label>
+              <label><span data-i18n="visualStyle">Visual style</span><select id="project-visual"><option value="generic-visual">Generic</option><option value="bevo-visual">Bevo</option><option value="music-visual">Music</option><option value="gallery-visual">Gallery</option><option value="calculator-visual">Calculator</option></select></label>
+              <label class="checkbox-field"><input id="project-featured" type="checkbox"><span data-i18n="featuredProject">Featured project</span></label>
+              <label class="field-wide"><span data-i18n="noteEn">Note — English</span><textarea id="project-note-en" rows="2"></textarea></label>
+              <label class="field-wide"><span data-i18n="noteAr">Note — العربية</span><textarea id="project-note-ar" rows="2" dir="rtl"></textarea></label>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-secondary" type="button" data-editor-clear="projects" data-i18n="clearEditor">Clear</button>
+              <button class="btn btn-primary" type="submit" data-i18n="saveItem">Save item</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="manager-panel" id="manager-training" data-manager-panel="training">
+          <div class="manager-list" id="training-manager-list"></div>
+          <form class="manager-editor" id="training-editor" data-editor="training">
+            <div class="editor-heading"><strong data-i18n="trainingEditor">Training editor</strong><span class="editor-mode" id="training-editor-mode"></span></div>
+            <div class="manager-fields">
+              <label><span data-i18n="nameEn">Title — English</span><input id="training-title-en" type="text" maxlength="90"></label>
+              <label><span data-i18n="nameAr">Title — العربية</span><input id="training-title-ar" type="text" maxlength="90" dir="rtl"></label>
+              <label><span data-i18n="organizationEn">Organization — English</span><input id="training-org-en" type="text"></label>
+              <label><span data-i18n="organizationAr">Organization — العربية</span><input id="training-org-ar" type="text" dir="rtl"></label>
+              <label><span data-i18n="labelEn">Status — English</span><input id="training-label-en" type="text"></label>
+              <label><span data-i18n="labelAr">Status — العربية</span><input id="training-label-ar" type="text" dir="rtl"></label>
+              <label><span data-i18n="metaEn">Category — English</span><input id="training-meta-en" type="text"></label>
+              <label><span data-i18n="metaAr">Category — العربية</span><input id="training-meta-ar" type="text" dir="rtl"></label>
+              <label class="field-wide"><span data-i18n="iconClass">Font Awesome icon class</span><input id="training-icon" type="text" placeholder="fa-solid fa-certificate"></label>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-secondary" type="button" data-editor-clear="training" data-i18n="clearEditor">Clear</button>
+              <button class="btn btn-primary" type="submit" data-i18n="saveItem">Save item</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="settings-actions">
+        <button class="btn btn-secondary" id="reset-settings" type="button" data-i18n="reset">Reset defaults</button>
+        <div>
+          <button class="btn btn-secondary" type="button" data-close-settings data-i18n="cancel">Cancel</button>
+          <button class="btn btn-primary" id="save-settings" type="button" data-i18n="saveChanges">Save changes</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span id="footer-text">© 2026 Pavley Mousa</span>
+      <a href="#hero"><span data-i18n="backToTop">Back to top </span><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <noscript><div class="noscript-message" data-i18n="noscript">JavaScript is disabled. The portfolio content is still available, but interactive features are unavailable.</div></noscript>
+</body>
+</html>
