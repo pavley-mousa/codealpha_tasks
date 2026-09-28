@@ -1,33 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#08111f" />
-  <meta name="description" content="Pavley Mousa is a Computer Science and Artificial Intelligence student focused on frontend development, C++, software engineering, and web security fundamentals." />
+  <meta name="description" content="Pavley Mousa — Computer Science and Artificial Intelligence student portfolio." />
   <meta name="author" content="Pavley Mousa" />
   <meta name="robots" content="index, follow" />
-
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Pavley Mousa | Developer Portfolio" />
-  <meta property="og:description" content="Computer Science and Artificial Intelligence student building responsive web experiences and practical software projects." />
-  <meta property="og:url" content="https://github.com/pavley-mousa/codealpha_tasks" />
+  <meta property="og:description" content="Computer Science and Artificial Intelligence student building practical software and web projects." />
   <meta property="og:site_name" content="Pavley Mousa Portfolio" />
-
   <title>Pavley Mousa | Developer Portfolio</title>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
@@ -38,7 +30,7 @@
 
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo" aria-label="Pavley Mousa home">
+      <a class="nav-logo" href="#hero" aria-label="Pavley Mousa home">
         <span>&lt;</span>Pavley<span>/&gt;</span>
       </a>
 
@@ -46,30 +38,23 @@
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
           <i class="fa-solid fa-moon" aria-hidden="true"></i>
         </button>
-        <button
-          class="nav-toggle"
-          id="nav-toggle"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-controls="nav-menu"
-          aria-expanded="false"
-        >
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
       </div>
 
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#certifications" class="nav-link">Experience</a></li>
-        <li><a href="#contact" class="nav-link nav-contact">Contact</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#training">Training</a></li>
+        <li><a class="nav-link nav-contact" href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="main-content">
-    <header class="hero section-shell" id="hero">
+    <header class="hero section-shell" id="hero" data-observe-section>
       <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
       <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
 
@@ -81,8 +66,8 @@
           </span>
 
           <h1>
-            Building clean interfaces and
-            <span>practical digital products.</span>
+            I build useful software with
+            <span>code, curiosity, and consistency.</span>
           </h1>
 
           <p class="hero-copy">
@@ -91,26 +76,24 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">
-              View Projects
+              View projects
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-            <a class="btn btn-secondary" href="#contact">
-              Let’s Connect
-            </a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
           </div>
 
           <div class="hero-meta" aria-label="Quick facts">
             <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Egypt</span>
-            <span><i class="fa-solid fa-code" aria-hidden="true"></i> Web Development</span>
-            <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security Fundamentals</span>
+            <span><i class="fa-solid fa-code" aria-hidden="true"></i> Web development</span>
+            <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security fundamentals</span>
           </div>
         </div>
 
-        <div class="hero-card reveal" aria-label="Developer profile">
-          <div class="terminal-top">
+        <div class="hero-card reveal" aria-label="Developer profile card">
+          <div class="terminal-top" aria-hidden="true">
             <span></span><span></span><span></span>
           </div>
-          <div class="terminal-body">
+          <div class="terminal-body" aria-label="Code-style profile">
             <p><span class="code-purple">const</span> developer = {</p>
             <p class="code-indent"><span class="code-key">name:</span> <span class="code-string">"Pavley Mousa"</span>,</p>
             <p class="code-indent"><span class="code-key">focus:</span> <span class="code-string">"Software + Web"</span>,</p>
@@ -122,17 +105,17 @@
         </div>
       </div>
 
-      <a class="scroll-hint" href="#about" aria-label="Scroll to about section">
+      <a class="scroll-hint" href="#about" aria-label="Scroll to about">
         <span>Scroll to explore</span>
         <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
       </a>
     </header>
 
-    <section class="section section-shell" id="about">
+    <section class="section section-shell" id="about" data-observe-section>
       <div class="section-heading reveal">
         <span class="section-kicker">01 / ABOUT</span>
-        <h2>Focused on learning by building.</h2>
-        <p>My work combines frontend practice with programming fundamentals and security awareness.</p>
+        <h2>Learning by building real things.</h2>
+        <p>I use projects to turn programming concepts into working interfaces, tools, and experiments.</p>
       </div>
 
       <div class="about-layout">
@@ -140,67 +123,67 @@
           <div class="card-icon"><i class="fa-solid fa-user-astronaut" aria-hidden="true"></i></div>
           <h3>Who I am</h3>
           <p>
-            I study Computer Science and Artificial Intelligence and use personal projects to turn what I learn into working software. I care about readable code, responsive interfaces, and simple user experiences.
+            I study Computer Science and Artificial Intelligence and build projects while I learn. My priorities are readable code, responsive design, practical problem solving, and steady improvement.
           </p>
         </article>
 
-        <div class="stats-grid">
+        <div class="stats-grid" aria-label="Portfolio highlights">
           <article class="stat-card glass-card reveal">
-            <strong>04+</strong>
-            <span>Core learning areas</span>
+            <strong>06</strong>
+            <span>Practical skill areas</span>
           </article>
           <article class="stat-card glass-card reveal">
-            <strong>03</strong>
-            <span>Featured project stories</span>
+            <strong>04</strong>
+            <span>Featured projects</span>
           </article>
           <article class="stat-card glass-card reveal">
             <strong>2026</strong>
-            <span>Growing with every project</span>
+            <span>Current learning journey</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-shell" id="skills">
+    <section class="section section-shell" id="skills" data-observe-section>
       <div class="section-heading reveal">
         <span class="section-kicker">02 / SKILLS</span>
-        <h2>Tools I use and practice.</h2>
-        <p>A practical stack built around web development, programming, data, and security fundamentals.</p>
+        <h2>My current toolkit.</h2>
+        <p>A practical foundation across web development, programming, data, and security.</p>
       </div>
 
       <div class="skills-grid">
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-html5" aria-hidden="true"></i></div>
           <h3>HTML &amp; CSS</h3>
-          <p>Semantic structure, responsive layouts, accessibility, and modern CSS.</p>
+          <p>Semantic HTML, responsive layouts, accessibility, and modern CSS patterns.</p>
           <span class="skill-level">Frontend</span>
         </article>
 
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-js" aria-hidden="true"></i></div>
           <h3>JavaScript</h3>
-          <p>DOM manipulation, events, browser APIs, and interactive interfaces.</p>
+          <p>DOM manipulation, browser APIs, events, state, and interactive UI logic.</p>
           <span class="skill-level">Frontend</span>
         </article>
 
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
           <h3>C++</h3>
-          <p>Programming fundamentals, problem solving, functions, and data structures practice.</p>
+          <p>Programming fundamentals, functions, problem solving, and algorithm practice.</p>
           <span class="skill-level">Programming</span>
         </article>
 
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-node-js" aria-hidden="true"></i></div>
           <h3>Node.js</h3>
-          <p>Backend fundamentals and JavaScript runtime concepts.</p>
+          <p>JavaScript runtime concepts and backend foundations for web applications.</p>
           <span class="skill-level">Backend</span>
         </article>
 
         <article class="skill-card glass-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
           <h3>SQL</h3>
-          <p>Relational data concepts, queries, schemas, and application data basics.</p>
+          <p>Relational models, schemas, queries, and application data fundamentals.</p>
           <span class="skill-level">Data</span>
         </article>
 
@@ -213,11 +196,11 @@
       </div>
     </section>
 
-    <section class="section section-shell" id="projects">
+    <section class="section section-shell" id="projects" data-observe-section>
       <div class="section-heading reveal">
         <span class="section-kicker">03 / PROJECTS</span>
-        <h2>Selected work.</h2>
-        <p>Projects that show how I turn requirements into functional, responsive interfaces.</p>
+        <h2>Selected work and practice.</h2>
+        <p>Projects that reflect what I’m learning and the way I approach building.</p>
       </div>
 
       <div class="projects-grid">
@@ -228,16 +211,11 @@
             <span class="visual-label">E-COMMERCE</span>
           </div>
           <div class="project-content">
-            <span class="project-tag">Featured Project</span>
+            <span class="project-tag">Featured</span>
             <h3>Bevo Stickers</h3>
-            <p>
-              A custom sticker shopping experience with cart management, order routing, media handling, and a production-oriented web stack.
-            </p>
+            <p>A custom sticker shopping experience centered on product browsing, cart flow, media handling, and practical deployment.</p>
             <div class="tech-list">
-              <span>JavaScript</span>
-              <span>Cloudinary</span>
-              <span>Turso</span>
-              <span>Vercel</span>
+              <span>JavaScript</span><span>Cloudinary</span><span>Turso</span><span>Vercel</span>
             </div>
             <a class="text-link" href="https://github.com/pavley-mousa/Bevo-stickers" target="_blank" rel="noopener noreferrer">
               View source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
@@ -246,23 +224,21 @@
         </article>
 
         <article class="project-card glass-card reveal">
-          <div class="project-visual calculator-visual">
+          <div class="project-visual music-visual">
             <span class="project-number">02</span>
-            <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+            <i class="fa-solid fa-music" aria-hidden="true"></i>
             <span class="visual-label">CODEALPHA TASK</span>
           </div>
           <div class="project-content">
             <span class="project-tag">Frontend Practice</span>
-            <h3>Interactive Calculator</h3>
-            <p>
-              A browser calculator focused on arithmetic operations, live evaluation, input handling, and keyboard support.
-            </p>
+            <h3>Music Player</h3>
+            <p>A browser-based player experiment with playlists, playback controls, local settings, and multiple audio source types.</p>
             <div class="tech-list">
-              <span>HTML5</span>
-              <span>CSS Grid</span>
-              <span>JavaScript</span>
+              <span>HTML5</span><span>CSS</span><span>JavaScript</span><span>localStorage</span>
             </div>
-            <span class="project-status"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Source repository link needs updating</span>
+            <a class="text-link" href="https://github.com/pavley-mousa/codealpha_tasks_Music_Player" target="_blank" rel="noopener noreferrer">
+              View source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
           </div>
         </article>
 
@@ -275,25 +251,40 @@
           <div class="project-content">
             <span class="project-tag">Frontend Practice</span>
             <h3>Responsive Image Gallery</h3>
-            <p>
-              An image gallery with category filtering, hover states, and a modal viewer designed around responsive browsing.
-            </p>
+            <p>A responsive image gallery focused on search, filters, responsive cards, local demo assets, and full-screen viewing.</p>
             <div class="tech-list">
-              <span>HTML5</span>
-              <span>CSS</span>
-              <span>DOM Events</span>
+              <span>HTML5</span><span>CSS</span><span>DOM</span><span>localStorage</span>
             </div>
-            <span class="project-status"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Source repository link needs updating</span>
+            <a class="text-link" href="https://github.com/pavley-mousa/codealpha_tasks_image_gallery" target="_blank" rel="noopener noreferrer">
+              View source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card glass-card reveal">
+          <div class="project-visual calculator-visual">
+            <span class="project-number">04</span>
+            <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+            <span class="visual-label">CODEALPHA TASK</span>
+          </div>
+          <div class="project-content">
+            <span class="project-tag">Practice</span>
+            <h3>Interactive Calculator</h3>
+            <p>A compact browser calculator focused on arithmetic operations, input handling, keyboard support, and clean UI behavior.</p>
+            <div class="tech-list">
+              <span>HTML5</span><span>CSS Grid</span><span>JavaScript</span>
+            </div>
+            <span class="project-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Source link will be added when a dedicated repository is available.</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section section-shell" id="certifications">
+    <section class="section section-shell" id="training" data-observe-section>
       <div class="section-heading reveal">
-        <span class="section-kicker">04 / EXPERIENCE</span>
-        <h2>Courses and training.</h2>
-        <p>Selected learning milestones from university and external training programs.</p>
+        <span class="section-kicker">04 / TRAINING</span>
+        <h2>Courses and communities.</h2>
+        <p>Selected learning milestones from university, technical courses, and developer communities.</p>
       </div>
 
       <div class="timeline">
@@ -330,22 +321,20 @@
         <article class="timeline-item reveal">
           <div class="timeline-marker"><i class="fa-brands fa-google" aria-hidden="true"></i></div>
           <div class="timeline-card glass-card">
-            <span class="timeline-label">MEMBER</span>
+            <span class="timeline-label">COMMUNITY</span>
             <h3>Google Developer Program</h3>
-            <p>Community participation and DevFest attendance</p>
+            <p>Developer community participation and DevFest attendance</p>
             <span class="timeline-year">Developer community</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section section-shell contact-section" id="contact">
+    <section class="section section-shell contact-section" id="contact" data-observe-section>
       <div class="contact-card glass-card reveal">
-        <div>
-          <span class="section-kicker">05 / CONTACT</span>
-          <h2>Let’s build something useful.</h2>
-          <p>Open to software development opportunities, freelance projects, and technical conversations.</p>
-        </div>
+        <span class="section-kicker">05 / CONTACT</span>
+        <h2>Let’s build something useful.</h2>
+        <p>Open to software development opportunities, freelance projects, and technical conversations.</p>
 
         <div class="contact-actions">
           <a class="btn btn-primary" href="mailto:bavlymosa29@gmail.com">
@@ -359,22 +348,13 @@
         </div>
 
         <div class="social-links" aria-label="Social profiles">
-          <a href="https://www.linkedin.com/in/pavley-mousa-715533341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <i class="fa-brands fa-github" aria-hidden="true"></i>
-          </a>
-          <a href="https://wa.me/201556126686" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.facebook.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.instagram.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
+          <a href="https://www.linkedin.com/in/pavley-mousa-715533341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/pavley-mousa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a href="https://wa.me/201556126686" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/pavley.mousa" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
         </div>
+
         <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></p>
       </div>
     </section>
@@ -382,7 +362,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>© 2026 Pavley Mousa</span>
+      <span>© <span id="current-year">2026</span> Pavley Mousa</span>
       <a href="#hero">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
     </div>
   </footer>
@@ -392,7 +372,7 @@
   </button>
 
   <noscript>
-    <div class="noscript-message">JavaScript is disabled. The portfolio content is still available, but interactive navigation features are unavailable.</div>
+    <div class="noscript-message">JavaScript is disabled. The portfolio content is still available, but interactive features are unavailable.</div>
   </noscript>
 </body>
 </html>
