@@ -46,6 +46,7 @@
         <li><a class="nav-link" href="#about">About</a></li>
         <li><a class="nav-link" href="#skills">Skills</a></li>
         <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#labs">Labs</a></li>
         <li><a class="nav-link" href="#training">Training</a></li>
         <li><a class="nav-link nav-contact" href="#contact">Contact</a></li>
       </ul>
@@ -279,9 +280,112 @@
       </div>
     </section>
 
+    <section class="section section-shell labs-section" id="labs" data-observe-section>
+      <div class="section-heading reveal">
+        <span class="section-kicker">04 / INTERACTIVE LABS</span>
+        <h2>Try the projects, not just the cards.</h2>
+        <p>These small demos bring the useful parts of the separate Music Player and Image Gallery projects into this portfolio.</p>
+      </div>
+
+      <div class="labs-grid">
+        <article class="lab-card glass-card reveal" aria-labelledby="music-lab-title">
+          <div class="lab-head">
+            <div>
+              <span class="lab-kicker"><i class="fa-solid fa-music" aria-hidden="true"></i> MUSIC PLAYER</span>
+              <h3 id="music-lab-title">Personal audio library</h3>
+            </div>
+            <span class="lab-badge">localStorage</span>
+          </div>
+
+          <div class="music-now">
+            <div class="music-cover" id="music-cover" aria-hidden="true"><i class="fa-solid fa-music"></i></div>
+            <div class="music-track-copy">
+              <strong id="music-title">Demo Track</strong>
+              <span id="music-artist">SoundHelix</span>
+              <span id="music-source">Direct audio</span>
+            </div>
+            <button class="lab-icon-btn" id="music-favorite" type="button" aria-label="Favorite track" aria-pressed="false">
+              <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <audio id="lab-audio" preload="metadata"></audio>
+
+          <div class="music-progress">
+            <span id="music-current">0:00</span>
+            <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track progress" />
+            <span id="music-duration">0:00</span>
+          </div>
+
+          <div class="music-controls">
+            <button class="lab-icon-btn" id="music-shuffle" type="button" aria-label="Shuffle off" aria-pressed="false"><i class="fa-solid fa-shuffle"></i></button>
+            <button class="lab-icon-btn" id="music-prev" type="button" aria-label="Previous track"><i class="fa-solid fa-backward-step"></i></button>
+            <button class="lab-play-btn" id="music-play" type="button" aria-label="Play"><i class="fa-solid fa-play" aria-hidden="true"></i></button>
+            <button class="lab-icon-btn" id="music-next" type="button" aria-label="Next track"><i class="fa-solid fa-forward-step"></i></button>
+            <button class="lab-icon-btn" id="music-repeat" type="button" aria-label="Repeat off" aria-pressed="false"><i class="fa-solid fa-repeat"></i></button>
+          </div>
+
+          <div class="music-volume">
+            <button class="lab-icon-btn" id="music-mute" type="button" aria-label="Mute"><i class="fa-solid fa-volume-high"></i></button>
+            <input id="music-volume" type="range" min="0" max="1" value="0.8" step="0.01" aria-label="Volume" />
+            <span id="music-status">Player ready.</span>
+          </div>
+
+          <div class="music-playlist-wrap">
+            <div class="lab-subhead">
+              <strong>Playlist</strong>
+              <span id="music-track-count">0 tracks</span>
+            </div>
+            <div class="music-playlist" id="music-playlist"></div>
+          </div>
+
+          <form class="lab-form music-add-form" id="music-add-form">
+            <input id="music-track-name" type="text" maxlength="70" placeholder="Track name" aria-label="Track name" required />
+            <input id="music-track-url" type="url" placeholder="https://...mp3" aria-label="Direct audio URL" required />
+            <input id="music-track-artist" type="text" maxlength="60" placeholder="Artist" aria-label="Artist" />
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Add track</button>
+          </form>
+          <p class="lab-hint">Direct audio URLs are supported. SoundCloud can be kept as a source link, while browser playback uses direct audio files.</p>
+        </article>
+
+        <article class="lab-card glass-card reveal" aria-labelledby="gallery-lab-title">
+          <div class="lab-head">
+            <div>
+              <span class="lab-kicker"><i class="fa-solid fa-images" aria-hidden="true"></i> IMAGE GALLERY</span>
+              <h3 id="gallery-lab-title">Browse and build a collection</h3>
+            </div>
+            <span class="lab-badge" id="gallery-count-badge">0 images</span>
+          </div>
+
+          <div class="gallery-tools">
+            <input id="gallery-search" type="search" placeholder="Search images..." aria-label="Search images" />
+            <select id="gallery-category" aria-label="Filter images by category">
+              <option value="all">All categories</option>
+            </select>
+            <select id="gallery-sort" aria-label="Sort gallery">
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+
+          <div class="lab-gallery-grid" id="lab-gallery-grid"></div>
+          <p class="gallery-empty hidden" id="gallery-empty">No images match your search.</p>
+
+          <form class="lab-form gallery-add-form" id="gallery-add-form">
+            <input id="gallery-title-input" type="text" maxlength="70" placeholder="Image title" aria-label="Image title" required />
+            <input id="gallery-category-input" type="text" maxlength="35" placeholder="Category" aria-label="Image category" />
+            <input id="gallery-url-input" type="url" placeholder="Image URL (https://...)" aria-label="Image URL" />
+            <input id="gallery-file-input" type="file" accept="image/*" aria-label="Upload image" />
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Add image</button>
+          </form>
+          <p class="lab-hint">Images added by URL or upload are stored locally in this browser. Uploaded files should be 3MB or smaller.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section section-shell" id="training" data-observe-section>
       <div class="section-heading reveal">
-        <span class="section-kicker">04 / TRAINING</span>
+        <span class="section-kicker">05 / TRAINING</span>
         <h2>Courses and communities.</h2>
         <p>Selected learning milestones from university, technical courses, and developer communities.</p>
       </div>
@@ -331,7 +435,7 @@
 
     <section class="section section-shell contact-section" id="contact" data-observe-section>
       <div class="contact-card glass-card reveal">
-        <span class="section-kicker">05 / CONTACT</span>
+        <span class="section-kicker">06 / CONTACT</span>
         <h2>Let’s build something useful.</h2>
         <p>Open to software development opportunities, freelance projects, and technical conversations.</p>
 
