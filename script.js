@@ -298,7 +298,6 @@ function fillFields(map){
   Object.entries(map).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.value=value??"";});
 }
 function populateSettingsForm(){
-  draftSettings=clone(settings);
   fillFields({
     "setting-site-en":draftSettings.siteEn,"setting-site-ar":draftSettings.siteAr,"setting-subtitle-en":draftSettings.subtitleEn,"setting-subtitle-ar":draftSettings.subtitleAr,
     "setting-logo":draftSettings.logoUrl,"setting-accent":draftSettings.accent,
@@ -382,7 +381,7 @@ function clearEditor(type){
   };
   selectors[type].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
   if(type==="projects"){document.getElementById("project-visual").value="generic-visual";document.getElementById("project-featured").checked=false;}
-  const mode=document.getElementById(type.slice(0,-1)+"-editor-mode")||document.getElementById(type+"-editor-mode");
+  const mode=document.getElementById(({skills:"skill",projects:"project",training:"training"})[type]+"-editor-mode");
   if(mode)mode.textContent=t("editingNew");
 }
 function fillEditor(type,index){
@@ -397,7 +396,7 @@ function fillEditor(type,index){
     "project-note-en":item.noteEn||"","project-note-ar":item.noteAr||""
   }:{"training-title-en":item.titleEn,"training-title-ar":item.titleAr,"training-org-en":item.orgEn,"training-org-ar":item.orgAr,"training-label-en":item.labelEn,"training-label-ar":item.labelAr,"training-meta-en":item.metaEn,"training-meta-ar":item.metaAr,"training-icon":item.icon};
   Object.entries(values).forEach(([id,value])=>{const el=document.getElementById(id);if(!el)return;if(value==="__CHECKED__")el.checked=true;else el.value=value??"";});
-  const mode=document.getElementById(type.slice(0,-1)+"-editor-mode");
+  const mode=document.getElementById(({skills:"skill",projects:"project",training:"training"})[type]+"-editor-mode");
   if(mode)mode.textContent=t("editingExisting");
 }
 function readEditor(type){
