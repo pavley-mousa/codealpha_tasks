@@ -1,54 +1,55 @@
 # Pavley Mousa Portfolio
 
-A responsive personal portfolio built with semantic HTML, modern CSS, and vanilla JavaScript.
+A responsive personal portfolio built with semantic HTML, CSS, and vanilla JavaScript.
 
-## Features
+## Highlights
 
-- Responsive layout for desktop, tablet, and mobile
-- Dark and light themes with localStorage persistence
-- Accessible mobile navigation with keyboard and Escape support
+- Responsive desktop, tablet, and mobile layout
+- Dark/light theme with localStorage persistence
+- Accessible mobile navigation with Escape support
 - Active section highlighting while scrolling
 - Scroll progress indicator
 - Reveal animations with reduced-motion support
-- Project and skills sections
-- Training and certification timeline
-- Email copy action
+- Project, skills, training, and contact sections
+- Clipboard email action with a browser fallback
 - Back-to-top control
-- SEO metadata and social sharing metadata
+- SEO and Open Graph metadata
 - Custom SVG favicon
 
-## Tech Stack
+## Featured projects
 
-HTML5
-CSS3
-Vanilla JavaScript
-Font Awesome
+- **Bevo Stickers** — https://github.com/pavley-mousa/Bevo-stickers
+- **Music Player** — https://github.com/pavley-mousa/codealpha_tasks_Music_Player
+- **Image Gallery** — https://github.com/pavley-mousa/codealpha_tasks_image_gallery
+- **Interactive Calculator** — portfolio practice project; no dedicated repository linked yet
+
+## Tech stack
+
+HTML5  
+CSS3  
+Vanilla JavaScript  
+Font Awesome  
 Google Fonts
 
 ## Run locally
 
-Open index.html in a browser, or serve the folder with any static web server.
+Open `index.html` in a browser, or serve the folder with any static web server such as VS Code Live Server.
 
 ## Project structure
 
-index.html
-style.css
-script.js
-favicon.svg
-404.html
+- `index.html` — page structure and content
+- `style.css` — responsive visual system
+- `script.js` — navigation, theme, reveal animations, scrolling UI, and clipboard logic
+- `favicon.svg` — custom favicon
+- `404.html` — fallback page
+- `package.json` — optional Node-based syntax check
 
-## Featured project
+## Check JavaScript syntax
 
-Bevo Stickers:
-https://github.com/pavley-mousa/Bevo-stickers
+Run:
 
-## Contact
+```bash
+npm test
+```
 
-GitHub:
-https://github.com/pavley-mousa
-
-LinkedIn:
-https://www.linkedin.com/in/pavley-mousa-715533341
-
-Email:
-bavlymosa29@gmail.com
+This runs Node's built-in JavaScript syntax checker; the portfolio itself does not require npm dependencies.
