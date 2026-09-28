@@ -2,18 +2,24 @@
 
 A responsive personal portfolio built with semantic HTML, CSS, and vanilla JavaScript.
 
-## Highlights
+## Features
 
 - Responsive desktop, tablet, and mobile layout
-- Dark/light theme with localStorage persistence
+- **Arabic / English** language switch with RTL support
+- **Full user settings** stored in localStorage
+- Editable site name and subtitle in both languages
+- Editable Hero badge, title, highlight, and description in both languages
+- Editable About content in both languages
+- Editable Contact content, email, location, and social links
+- Editable logo URL and accent color
+- Dark / light theme
 - Accessible mobile navigation with Escape support
 - Active section highlighting while scrolling
 - Scroll progress indicator
 - Reveal animations with reduced-motion support
-- Project, skills, training, and contact sections
-- Clipboard email action with a browser fallback
+- Clipboard email action with browser fallback
 - Back-to-top control
-- SEO and Open Graph metadata
+- SEO and Open Graph metadata that update with the selected language
 - Custom SVG favicon
 
 ## Featured projects
@@ -21,7 +27,7 @@ A responsive personal portfolio built with semantic HTML, CSS, and vanilla JavaS
 - **Bevo Stickers** — https://github.com/pavley-mousa/Bevo-stickers
 - **Music Player** — https://github.com/pavley-mousa/codealpha_tasks_Music_Player
 - **Image Gallery** — https://github.com/pavley-mousa/codealpha_tasks_image_gallery
-- **Interactive Calculator** — portfolio practice project; no dedicated repository linked yet
+- **Interactive Calculator** — portfolio practice project
 
 ## Tech stack
 
@@ -33,23 +39,21 @@ Google Fonts
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder with any static web server such as VS Code Live Server.
+Open `index.html` in a browser, or serve the folder with a static web server such as VS Code Live Server.
 
-## Project structure
-
-- `index.html` — page structure and content
-- `style.css` — responsive visual system
-- `script.js` — navigation, theme, reveal animations, scrolling UI, and clipboard logic
-- `favicon.svg` — custom favicon
-- `404.html` — fallback page
-- `package.json` — optional Node-based syntax check
-
-## Check JavaScript syntax
-
-Run:
+## Syntax check
 
 ```bash
 npm test
 ```
 
-This runs Node's built-in JavaScript syntax checker; the portfolio itself does not require npm dependencies.
+The test script runs Node's built-in JavaScript syntax checker. No npm dependencies are required.
+
+## Project structure
+
+- `index.html` — page structure, portfolio content, and settings UI
+- `style.css` — responsive visual system
+- `script.js` — navigation, theme, bilingual content, settings, scrolling UI, and clipboard logic
+- `favicon.svg` — custom favicon
+- `404.html` — fallback page
+- `package.json` — syntax-check script
