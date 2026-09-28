@@ -74,6 +74,7 @@ function applyContent(){
   document.getElementById("og-title").content=document.title;
   document.getElementById("og-description").content=v.description;
   document.getElementById("brand-name").textContent=v.site;
+  document.getElementById("site-subtitle").textContent=v.subtitle;
   document.getElementById("hero-badge").textContent=v.badge;
   document.getElementById("hero-title").textContent=v.title;
   document.getElementById("hero-highlight").textContent=v.highlight;
