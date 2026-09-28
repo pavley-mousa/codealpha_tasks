@@ -67,7 +67,7 @@ const TRANSLATIONS={
     projectsKicker:"03 / PROJECTS",projectsTitle:"Selected work and practice.",projectsLead:"Projects that reflect what I’m learning and the way I approach building.",
     featured:"Featured",frontendPractice:"Frontend Practice",practice:"Practice",viewSource:"View source",
     trainingKicker:"04 / TRAINING",trainingTitle:"Courses and communities.",trainingLead:"Selected learning milestones from university, technical courses, and developer communities.",
-    certified:"CERTIFIED",training:"TRAINING",community:"COMMUNITY",programmingFundamentals:"Programming fundamentals",academicTraining:"Academic training",developerCommunity:"Developer community",
+    certified:"CERTIFIED",training:"TRAINING",community:"COMMUNITY",nameRequired:"Enter a name in at least one language.",programmingFundamentals:"Programming fundamentals",academicTraining:"Academic training",developerCommunity:"Developer community",
     googleText:"Developer community participation and DevFest attendance",contactKicker:"05 / CONTACT",sendEmail:"Send an email",copyEmail:"Copy email",backToTop:"Back to top",
     settingsKicker:"USER SETTINGS",settingsTitle:"Full Site Control",settingsLead:"Edit site-wide settings and manage every skill, project, and training item. Changes are saved in this browser.",
     identitySection:"Identity",siteNameEn:"Site name — English",siteNameAr:"Site name — العربية",subtitleEn:"Subtitle — English",subtitleAr:"Subtitle — العربية",logoUrl:"Logo URL",accent:"Accent color",
@@ -91,7 +91,7 @@ const TRANSLATIONS={
     projectsKicker:"03 / المشاريع",projectsTitle:"أهم الشغل والتطبيقات.",projectsLead:"مشاريع بتوضح اللي بتعلمه وطريقة تعاملي مع البناء والتنفيذ.",
     featured:"مميز",frontendPractice:"تطبيق فرونت إند",practice:"تطبيق",viewSource:"شوف المصدر",
     trainingKicker:"04 / التدريب",trainingTitle:"الكورسات والمجتمعات.",trainingLead:"محطات تعليمية مختارة من الجامعة والكورسات التقنية والمجتمعات البرمجية.",
-    certified:"حاصل على شهادة",training:"تدريب",community:"مجتمع",programmingFundamentals:"أساسيات البرمجة",academicTraining:"تدريب أكاديمي",developerCommunity:"مجتمع المطورين",
+    certified:"حاصل على شهادة",training:"تدريب",community:"مجتمع",nameRequired:"اكتب اسم العنصر بلغة واحدة على الأقل.",programmingFundamentals:"أساسيات البرمجة",academicTraining:"تدريب أكاديمي",developerCommunity:"مجتمع المطورين",
     googleText:"مشاركة في مجتمع المطورين وحضور DevFest",contactKicker:"05 / التواصل",sendEmail:"ابعت إيميل",copyEmail:"انسخ الإيميل",backToTop:"الرجوع لفوق",
     settingsKicker:"إعدادات المستخدم",settingsTitle:"تحكم كامل في الموقع",settingsLead:"عدّل إعدادات الموقع وأضف وعدّل واحذف ورتّب كل مهارة ومشروع وتدريب. التغييرات محفوظة على المتصفح.",
     identitySection:"الهوية",siteNameEn:"اسم الموقع — English",siteNameAr:"اسم الموقع — العربية",subtitleEn:"الوصف — English",subtitleAr:"الوصف — العربية",logoUrl:"رابط اللوجو",accent:"اللون الأساسي",
@@ -142,6 +142,7 @@ function saveContent(){try{localStorage.setItem(CONTENT_KEY,JSON.stringify(conte
 function t(key){return (TRANSLATIONS[settings.language]||TRANSLATIONS.en)[key]??TRANSLATIONS.en[key]??key;}
 function safeUrl(value,allowed=["http:","https:"]){
   const raw=String(value||"").trim();if(!raw)return "";
+  if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(raw))return "";
   try{const url=new URL(raw,window.location.href);return allowed.includes(url.protocol)?raw:"";}catch{return "";}
 }
 function safeEmail(value){
